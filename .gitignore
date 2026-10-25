@@ -1,0 +1,20 @@
+# .gitignore
+#
+
+# build
+.build/
+vendor/
+
+# code coverage
+.coverage.out
+
+# local settings
+.local.env
+.idea/
+.vscode/
+
+# temporary files
+*.swp
+*.swo
+*~
+.tmp/
