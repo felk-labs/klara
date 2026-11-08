@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package klara.mx.v1;
+
+option go_package = "github.com/klara-to/mx/pb";
+
+service Accounts {
+	rpc Create(AccountsCreateRequest) returns (AccountsCreateResponse);
+}
+
+message Account {
+	string id     = 1;
+	string domain = 2;
+	string name   = 3;
+}
+
+message AccountsCreateRequest {
+	string domain = 1;
+	string name   = 2;
+
+	optional string password = 3;
+}
+
+message AccountsCreateResponse {
+	Account account = 1;
+}

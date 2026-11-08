@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package klara.mx.detail;
+
+option go_package = "github.com/klara-to/mx/internal/pb";
+
+service Mta {
+	rpc Transfer(MtaTransferRequest) returns (MtaTransferResponse);
+}
+
+message MtaTransferRequest {
+	// SMTP envelope return path
+	string return_path = 1;
+
+	// SMTP envelope recipients
+	repeated string recipients = 2;
+
+	// Mail data
+	bytes data = 3;
+}
+
+message MtaTransferResponse {}

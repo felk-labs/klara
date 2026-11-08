@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package klara.mx.detail;
+
+option go_package = "github.com/klara-to/mx/internal/pb";
+
+import "klara/mx/v1/mail.proto";
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+message Event {
+	// Event timestamp
+	google.protobuf.Timestamp timestamp = 1;
+
+	// Event attributes
+	map<string, string> attrs = 2;
+
+	// Event metadata
+	optional google.protobuf.Struct meta = 3;
+
+	// Event data
+	oneof data {
+		EventDataMail mail = 4;
+	}
+}
+
+message EventDataMail {
+	string id = 1;
+
+	klara.mx.v1.MailType   type   = 2;
+	klara.mx.v1.MailStatus status = 3;
+}

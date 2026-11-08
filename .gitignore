@@ -8,10 +8,20 @@ vendor/
 # code coverage
 .coverage.out
 
+<<<<<<< HEAD
+=======
+# google-github-actions/auth@v2
+gha-creds-*.json
+
+>>>>>>> klara/main
 # local settings
 .local.env
 .idea/
 .vscode/
+<<<<<<< HEAD
+=======
+launch.json
+>>>>>>> klara/main
 
 # temporary files
 *.swp

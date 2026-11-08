@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package klara.mx.v1;
+
+option go_package = "github.com/klara-to/mx/pb";
+
+service Domains {
+	rpc Create(DomainsCreateRequest) returns (DomainsCreateResponse);
+}
+
+message Domain {
+	string id   = 1;
+	string name = 2;
+}
+
+message DomainsCreateRequest {
+	string name = 1;
+}
+
+message DomainsCreateResponse {
+	Domain domain = 1;
+}
