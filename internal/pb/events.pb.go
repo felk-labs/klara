@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.12
 // 	protoc        v7.36.2
-// source: klara/mx/detail/events.proto
+// source: klara/detail/events.proto
 
 package pb
 
@@ -44,7 +44,7 @@ type Event struct {
 
 func (x *Event) Reset() {
 	*x = Event{}
-	mi := &file_klara_mx_detail_events_proto_msgTypes[0]
+	mi := &file_klara_detail_events_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -56,7 +56,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_detail_events_proto_msgTypes[0]
+	mi := &file_klara_detail_events_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -69,7 +69,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_klara_mx_detail_events_proto_rawDescGZIP(), []int{0}
+	return file_klara_detail_events_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Event) GetTimestamp() *timestamppb.Timestamp {
@@ -122,15 +122,15 @@ func (*Event_Mail) isEvent_Data() {}
 type EventDataMail struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Type          pb.MailType            `protobuf:"varint,2,opt,name=type,proto3,enum=klara.mx.v1.MailType" json:"type,omitempty"`
-	Status        pb.MailStatus          `protobuf:"varint,3,opt,name=status,proto3,enum=klara.mx.v1.MailStatus" json:"status,omitempty"`
+	Type          pb.MailType            `protobuf:"varint,2,opt,name=type,proto3,enum=klara.v1.MailType" json:"type,omitempty"`
+	Status        pb.MailStatus          `protobuf:"varint,3,opt,name=status,proto3,enum=klara.v1.MailStatus" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *EventDataMail) Reset() {
 	*x = EventDataMail{}
-	mi := &file_klara_mx_detail_events_proto_msgTypes[1]
+	mi := &file_klara_detail_events_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -142,7 +142,7 @@ func (x *EventDataMail) String() string {
 func (*EventDataMail) ProtoMessage() {}
 
 func (x *EventDataMail) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_detail_events_proto_msgTypes[1]
+	mi := &file_klara_detail_events_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -155,7 +155,7 @@ func (x *EventDataMail) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDataMail.ProtoReflect.Descriptor instead.
 func (*EventDataMail) Descriptor() ([]byte, []int) {
-	return file_klara_mx_detail_events_proto_rawDescGZIP(), []int{1}
+	return file_klara_detail_events_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *EventDataMail) GetId() string {
@@ -179,56 +179,56 @@ func (x *EventDataMail) GetStatus() pb.MailStatus {
 	return pb.MailStatus(0)
 }
 
-var File_klara_mx_detail_events_proto protoreflect.FileDescriptor
+var File_klara_detail_events_proto protoreflect.FileDescriptor
 
-const file_klara_mx_detail_events_proto_rawDesc = "" +
+const file_klara_detail_events_proto_rawDesc = "" +
 	"\n" +
-	"\x1cklara/mx/detail/events.proto\x12\x0fklara.mx.detail\x1a\x16klara/mx/v1/mail.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xad\x02\n" +
+	"\x19klara/detail/events.proto\x12\fklara.detail\x1a\x13klara/v1/mail.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa7\x02\n" +
 	"\x05Event\x128\n" +
-	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x127\n" +
-	"\x05attrs\x18\x02 \x03(\v2!.klara.mx.detail.Event.AttrsEntryR\x05attrs\x120\n" +
-	"\x04meta\x18\x03 \x01(\v2\x17.google.protobuf.StructH\x01R\x04meta\x88\x01\x01\x124\n" +
-	"\x04mail\x18\x04 \x01(\v2\x1e.klara.mx.detail.EventDataMailH\x00R\x04mail\x1a8\n" +
+	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x124\n" +
+	"\x05attrs\x18\x02 \x03(\v2\x1e.klara.detail.Event.AttrsEntryR\x05attrs\x120\n" +
+	"\x04meta\x18\x03 \x01(\v2\x17.google.protobuf.StructH\x01R\x04meta\x88\x01\x01\x121\n" +
+	"\x04mail\x18\x04 \x01(\v2\x1b.klara.detail.EventDataMailH\x00R\x04mail\x1a8\n" +
 	"\n" +
 	"AttrsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\x06\n" +
 	"\x04dataB\a\n" +
-	"\x05_meta\"{\n" +
+	"\x05_meta\"u\n" +
 	"\rEventDataMail\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12)\n" +
-	"\x04type\x18\x02 \x01(\x0e2\x15.klara.mx.v1.MailTypeR\x04type\x12/\n" +
-	"\x06status\x18\x03 \x01(\x0e2\x17.klara.mx.v1.MailStatusR\x06statusB\x19Z\x17go.klara.mx/internal/pbb\x06proto3"
+	"\x02id\x18\x01 \x01(\tR\x02id\x12&\n" +
+	"\x04type\x18\x02 \x01(\x0e2\x12.klara.v1.MailTypeR\x04type\x12,\n" +
+	"\x06status\x18\x03 \x01(\x0e2\x14.klara.v1.MailStatusR\x06statusB\x19Z\x17go.klara.mx/internal/pbb\x06proto3"
 
 var (
-	file_klara_mx_detail_events_proto_rawDescOnce sync.Once
-	file_klara_mx_detail_events_proto_rawDescData []byte
+	file_klara_detail_events_proto_rawDescOnce sync.Once
+	file_klara_detail_events_proto_rawDescData []byte
 )
 
-func file_klara_mx_detail_events_proto_rawDescGZIP() []byte {
-	file_klara_mx_detail_events_proto_rawDescOnce.Do(func() {
-		file_klara_mx_detail_events_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_klara_mx_detail_events_proto_rawDesc), len(file_klara_mx_detail_events_proto_rawDesc)))
+func file_klara_detail_events_proto_rawDescGZIP() []byte {
+	file_klara_detail_events_proto_rawDescOnce.Do(func() {
+		file_klara_detail_events_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_klara_detail_events_proto_rawDesc), len(file_klara_detail_events_proto_rawDesc)))
 	})
-	return file_klara_mx_detail_events_proto_rawDescData
+	return file_klara_detail_events_proto_rawDescData
 }
 
-var file_klara_mx_detail_events_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_klara_mx_detail_events_proto_goTypes = []any{
-	(*Event)(nil),                 // 0: klara.mx.detail.Event
-	(*EventDataMail)(nil),         // 1: klara.mx.detail.EventDataMail
-	nil,                           // 2: klara.mx.detail.Event.AttrsEntry
+var file_klara_detail_events_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_klara_detail_events_proto_goTypes = []any{
+	(*Event)(nil),                 // 0: klara.detail.Event
+	(*EventDataMail)(nil),         // 1: klara.detail.EventDataMail
+	nil,                           // 2: klara.detail.Event.AttrsEntry
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 	(*structpb.Struct)(nil),       // 4: google.protobuf.Struct
-	(pb.MailType)(0),              // 5: klara.mx.v1.MailType
-	(pb.MailStatus)(0),            // 6: klara.mx.v1.MailStatus
+	(pb.MailType)(0),              // 5: klara.v1.MailType
+	(pb.MailStatus)(0),            // 6: klara.v1.MailStatus
 }
-var file_klara_mx_detail_events_proto_depIdxs = []int32{
-	3, // 0: klara.mx.detail.Event.timestamp:type_name -> google.protobuf.Timestamp
-	2, // 1: klara.mx.detail.Event.attrs:type_name -> klara.mx.detail.Event.AttrsEntry
-	4, // 2: klara.mx.detail.Event.meta:type_name -> google.protobuf.Struct
-	1, // 3: klara.mx.detail.Event.mail:type_name -> klara.mx.detail.EventDataMail
-	5, // 4: klara.mx.detail.EventDataMail.type:type_name -> klara.mx.v1.MailType
-	6, // 5: klara.mx.detail.EventDataMail.status:type_name -> klara.mx.v1.MailStatus
+var file_klara_detail_events_proto_depIdxs = []int32{
+	3, // 0: klara.detail.Event.timestamp:type_name -> google.protobuf.Timestamp
+	2, // 1: klara.detail.Event.attrs:type_name -> klara.detail.Event.AttrsEntry
+	4, // 2: klara.detail.Event.meta:type_name -> google.protobuf.Struct
+	1, // 3: klara.detail.Event.mail:type_name -> klara.detail.EventDataMail
+	5, // 4: klara.detail.EventDataMail.type:type_name -> klara.v1.MailType
+	6, // 5: klara.detail.EventDataMail.status:type_name -> klara.v1.MailStatus
 	6, // [6:6] is the sub-list for method output_type
 	6, // [6:6] is the sub-list for method input_type
 	6, // [6:6] is the sub-list for extension type_name
@@ -236,29 +236,29 @@ var file_klara_mx_detail_events_proto_depIdxs = []int32{
 	0, // [0:6] is the sub-list for field type_name
 }
 
-func init() { file_klara_mx_detail_events_proto_init() }
-func file_klara_mx_detail_events_proto_init() {
-	if File_klara_mx_detail_events_proto != nil {
+func init() { file_klara_detail_events_proto_init() }
+func file_klara_detail_events_proto_init() {
+	if File_klara_detail_events_proto != nil {
 		return
 	}
-	file_klara_mx_detail_events_proto_msgTypes[0].OneofWrappers = []any{
+	file_klara_detail_events_proto_msgTypes[0].OneofWrappers = []any{
 		(*Event_Mail)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_klara_mx_detail_events_proto_rawDesc), len(file_klara_mx_detail_events_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_klara_detail_events_proto_rawDesc), len(file_klara_detail_events_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_klara_mx_detail_events_proto_goTypes,
-		DependencyIndexes: file_klara_mx_detail_events_proto_depIdxs,
-		MessageInfos:      file_klara_mx_detail_events_proto_msgTypes,
+		GoTypes:           file_klara_detail_events_proto_goTypes,
+		DependencyIndexes: file_klara_detail_events_proto_depIdxs,
+		MessageInfos:      file_klara_detail_events_proto_msgTypes,
 	}.Build()
-	File_klara_mx_detail_events_proto = out.File
-	file_klara_mx_detail_events_proto_goTypes = nil
-	file_klara_mx_detail_events_proto_depIdxs = nil
+	File_klara_detail_events_proto = out.File
+	file_klara_detail_events_proto_goTypes = nil
+	file_klara_detail_events_proto_depIdxs = nil
 }

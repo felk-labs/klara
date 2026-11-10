@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.12
 // 	protoc        v7.36.2
-// source: klara/mx/v1/accounts.proto
+// source: klara/v1/accounts.proto
 
 package pb
 
@@ -32,7 +32,7 @@ type Account struct {
 
 func (x *Account) Reset() {
 	*x = Account{}
-	mi := &file_klara_mx_v1_accounts_proto_msgTypes[0]
+	mi := &file_klara_v1_accounts_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *Account) String() string {
 func (*Account) ProtoMessage() {}
 
 func (x *Account) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_v1_accounts_proto_msgTypes[0]
+	mi := &file_klara_v1_accounts_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *Account) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Account.ProtoReflect.Descriptor instead.
 func (*Account) Descriptor() ([]byte, []int) {
-	return file_klara_mx_v1_accounts_proto_rawDescGZIP(), []int{0}
+	return file_klara_v1_accounts_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Account) GetId() string {
@@ -92,7 +92,7 @@ type AccountsCreateRequest struct {
 
 func (x *AccountsCreateRequest) Reset() {
 	*x = AccountsCreateRequest{}
-	mi := &file_klara_mx_v1_accounts_proto_msgTypes[1]
+	mi := &file_klara_v1_accounts_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -104,7 +104,7 @@ func (x *AccountsCreateRequest) String() string {
 func (*AccountsCreateRequest) ProtoMessage() {}
 
 func (x *AccountsCreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_v1_accounts_proto_msgTypes[1]
+	mi := &file_klara_v1_accounts_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -117,7 +117,7 @@ func (x *AccountsCreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountsCreateRequest.ProtoReflect.Descriptor instead.
 func (*AccountsCreateRequest) Descriptor() ([]byte, []int) {
-	return file_klara_mx_v1_accounts_proto_rawDescGZIP(), []int{1}
+	return file_klara_v1_accounts_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *AccountsCreateRequest) GetDomain() string {
@@ -150,7 +150,7 @@ type AccountsCreateResponse struct {
 
 func (x *AccountsCreateResponse) Reset() {
 	*x = AccountsCreateResponse{}
-	mi := &file_klara_mx_v1_accounts_proto_msgTypes[2]
+	mi := &file_klara_v1_accounts_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -162,7 +162,7 @@ func (x *AccountsCreateResponse) String() string {
 func (*AccountsCreateResponse) ProtoMessage() {}
 
 func (x *AccountsCreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_v1_accounts_proto_msgTypes[2]
+	mi := &file_klara_v1_accounts_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -175,7 +175,7 @@ func (x *AccountsCreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountsCreateResponse.ProtoReflect.Descriptor instead.
 func (*AccountsCreateResponse) Descriptor() ([]byte, []int) {
-	return file_klara_mx_v1_accounts_proto_rawDescGZIP(), []int{2}
+	return file_klara_v1_accounts_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AccountsCreateResponse) GetAccount() *Account {
@@ -185,11 +185,11 @@ func (x *AccountsCreateResponse) GetAccount() *Account {
 	return nil
 }
 
-var File_klara_mx_v1_accounts_proto protoreflect.FileDescriptor
+var File_klara_v1_accounts_proto protoreflect.FileDescriptor
 
-const file_klara_mx_v1_accounts_proto_rawDesc = "" +
+const file_klara_v1_accounts_proto_rawDesc = "" +
 	"\n" +
-	"\x1aklara/mx/v1/accounts.proto\x12\vklara.mx.v1\"E\n" +
+	"\x17klara/v1/accounts.proto\x12\bklara.v1\"E\n" +
 	"\aAccount\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
 	"\x06domain\x18\x02 \x01(\tR\x06domain\x12\x12\n" +
@@ -198,34 +198,34 @@ const file_klara_mx_v1_accounts_proto_rawDesc = "" +
 	"\x06domain\x18\x01 \x01(\tR\x06domain\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1f\n" +
 	"\bpassword\x18\x03 \x01(\tH\x00R\bpassword\x88\x01\x01B\v\n" +
-	"\t_password\"H\n" +
-	"\x16AccountsCreateResponse\x12.\n" +
-	"\aaccount\x18\x01 \x01(\v2\x14.klara.mx.v1.AccountR\aaccount2]\n" +
-	"\bAccounts\x12Q\n" +
-	"\x06Create\x12\".klara.mx.v1.AccountsCreateRequest\x1a#.klara.mx.v1.AccountsCreateResponseB\x10Z\x0ego.klara.mx/pbb\x06proto3"
+	"\t_password\"E\n" +
+	"\x16AccountsCreateResponse\x12+\n" +
+	"\aaccount\x18\x01 \x01(\v2\x11.klara.v1.AccountR\aaccount2W\n" +
+	"\bAccounts\x12K\n" +
+	"\x06Create\x12\x1f.klara.v1.AccountsCreateRequest\x1a .klara.v1.AccountsCreateResponseB\x10Z\x0ego.klara.mx/pbb\x06proto3"
 
 var (
-	file_klara_mx_v1_accounts_proto_rawDescOnce sync.Once
-	file_klara_mx_v1_accounts_proto_rawDescData []byte
+	file_klara_v1_accounts_proto_rawDescOnce sync.Once
+	file_klara_v1_accounts_proto_rawDescData []byte
 )
 
-func file_klara_mx_v1_accounts_proto_rawDescGZIP() []byte {
-	file_klara_mx_v1_accounts_proto_rawDescOnce.Do(func() {
-		file_klara_mx_v1_accounts_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_klara_mx_v1_accounts_proto_rawDesc), len(file_klara_mx_v1_accounts_proto_rawDesc)))
+func file_klara_v1_accounts_proto_rawDescGZIP() []byte {
+	file_klara_v1_accounts_proto_rawDescOnce.Do(func() {
+		file_klara_v1_accounts_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_klara_v1_accounts_proto_rawDesc), len(file_klara_v1_accounts_proto_rawDesc)))
 	})
-	return file_klara_mx_v1_accounts_proto_rawDescData
+	return file_klara_v1_accounts_proto_rawDescData
 }
 
-var file_klara_mx_v1_accounts_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_klara_mx_v1_accounts_proto_goTypes = []any{
-	(*Account)(nil),                // 0: klara.mx.v1.Account
-	(*AccountsCreateRequest)(nil),  // 1: klara.mx.v1.AccountsCreateRequest
-	(*AccountsCreateResponse)(nil), // 2: klara.mx.v1.AccountsCreateResponse
+var file_klara_v1_accounts_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_klara_v1_accounts_proto_goTypes = []any{
+	(*Account)(nil),                // 0: klara.v1.Account
+	(*AccountsCreateRequest)(nil),  // 1: klara.v1.AccountsCreateRequest
+	(*AccountsCreateResponse)(nil), // 2: klara.v1.AccountsCreateResponse
 }
-var file_klara_mx_v1_accounts_proto_depIdxs = []int32{
-	0, // 0: klara.mx.v1.AccountsCreateResponse.account:type_name -> klara.mx.v1.Account
-	1, // 1: klara.mx.v1.Accounts.Create:input_type -> klara.mx.v1.AccountsCreateRequest
-	2, // 2: klara.mx.v1.Accounts.Create:output_type -> klara.mx.v1.AccountsCreateResponse
+var file_klara_v1_accounts_proto_depIdxs = []int32{
+	0, // 0: klara.v1.AccountsCreateResponse.account:type_name -> klara.v1.Account
+	1, // 1: klara.v1.Accounts.Create:input_type -> klara.v1.AccountsCreateRequest
+	2, // 2: klara.v1.Accounts.Create:output_type -> klara.v1.AccountsCreateResponse
 	2, // [2:3] is the sub-list for method output_type
 	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -233,27 +233,27 @@ var file_klara_mx_v1_accounts_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_klara_mx_v1_accounts_proto_init() }
-func file_klara_mx_v1_accounts_proto_init() {
-	if File_klara_mx_v1_accounts_proto != nil {
+func init() { file_klara_v1_accounts_proto_init() }
+func file_klara_v1_accounts_proto_init() {
+	if File_klara_v1_accounts_proto != nil {
 		return
 	}
-	file_klara_mx_v1_accounts_proto_msgTypes[1].OneofWrappers = []any{}
+	file_klara_v1_accounts_proto_msgTypes[1].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_klara_mx_v1_accounts_proto_rawDesc), len(file_klara_mx_v1_accounts_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_klara_v1_accounts_proto_rawDesc), len(file_klara_v1_accounts_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_klara_mx_v1_accounts_proto_goTypes,
-		DependencyIndexes: file_klara_mx_v1_accounts_proto_depIdxs,
-		MessageInfos:      file_klara_mx_v1_accounts_proto_msgTypes,
+		GoTypes:           file_klara_v1_accounts_proto_goTypes,
+		DependencyIndexes: file_klara_v1_accounts_proto_depIdxs,
+		MessageInfos:      file_klara_v1_accounts_proto_msgTypes,
 	}.Build()
-	File_klara_mx_v1_accounts_proto = out.File
-	file_klara_mx_v1_accounts_proto_goTypes = nil
-	file_klara_mx_v1_accounts_proto_depIdxs = nil
+	File_klara_v1_accounts_proto = out.File
+	file_klara_v1_accounts_proto_goTypes = nil
+	file_klara_v1_accounts_proto_depIdxs = nil
 }
