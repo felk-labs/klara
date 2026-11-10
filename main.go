@@ -12,9 +12,6 @@ import (
 	"syscall"
 	"time"
 
-	"golang.org/x/net/http2"
-	"golang.org/x/net/http2/h2c"
-
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 
@@ -83,10 +80,12 @@ func main() {
 		log.Fatal().Err(err).Msg("failed to listen")
 	}
 
-	handler := srv.New()
 	srv := http.Server{
-		Handler: h2c.NewHandler(handler, &http2.Server{}),
+		Handler: srv.New(),
 	}
+	srv.Protocols = &http.Protocols{}
+	srv.Protocols.SetHTTP1(true)
+	srv.Protocols.SetUnencryptedHTTP2(true)
 
 	ctx, cancel := context.WithCancel(context.Background())
 	sigCh := make(chan os.Signal, 1)
