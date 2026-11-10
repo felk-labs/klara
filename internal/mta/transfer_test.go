@@ -13,13 +13,14 @@ import (
 	"testing"
 	"time"
 
-	"go.klara.mx/internal/db"
-	"go.klara.mx/internal/kms"
-	"go.klara.mx/internal/pb"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/uatuko/go-message"
 	"github.com/uatuko/go-msgauth/dkim"
+
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/kms"
+	"go.klara.mx/internal/pb"
 )
 
 func TestTransfer(t *testing.T) {
