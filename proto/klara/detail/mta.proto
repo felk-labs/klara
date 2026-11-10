@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package klara.mx.detail;
+package klara.detail;
 
 option go_package = "go.klara.mx/internal/pb";
 

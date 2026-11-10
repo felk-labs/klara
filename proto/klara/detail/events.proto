@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package klara.mx.detail;
+package klara.detail;
 
 option go_package = "go.klara.mx/internal/pb";
 
-import "klara/mx/v1/mail.proto";
+import "klara/v1/mail.proto";
 
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
@@ -28,6 +28,6 @@ message Event {
 message EventDataMail {
 	string id = 1;
 
-	klara.mx.v1.MailType   type   = 2;
-	klara.mx.v1.MailStatus status = 3;
+	klara.v1.MailType   type   = 2;
+	klara.v1.MailStatus status = 3;
 }
