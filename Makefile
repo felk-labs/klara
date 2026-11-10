@@ -1,4 +1,4 @@
-binary       = .build/mx
+binary       = .build/klara
 binary-imapd = .build/imapd
 binary-msa   = .build/msa
 binary-mta   = .build/mta
@@ -25,6 +25,8 @@ githubrepo = $(shell awk 'NR==1 {print $$2; exit}' go.mod)
 %:
 	@:
 
+all: $(binary) $(binary-imapd) $(binary-msa) $(binary-mta) $(binary-smtpd)
+
 $(binary): $(sources)
 	go build -o $(binary) main.go
 
@@ -39,8 +41,6 @@ $(binary-mta): $(sources-mta) $(sources)
 
 $(binary-smtpd): $(sources-smtpd) $(sources)
 	go build -o $(binary-smtpd) ./cmd/smtpd/
-
-all: $(binary) $(binary-imapd) $(binary-msa) $(binary-mta) $(binary-smtpd)
 
 clean:
 	go clean
