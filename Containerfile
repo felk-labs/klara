@@ -7,7 +7,6 @@ COPY go.mod go.sum main.go /tmp/buildroot/
 COPY internal/ /tmp/buildroot/internal/
 COPY pb/ /tmp/buildroot/pb/
 COPY valid/ /tmp/buildroot/valid/
-COPY vendor/ /tmp/buildroot/vendor/
 
 RUN \
 	cd /tmp/buildroot \
@@ -16,7 +15,7 @@ RUN \
 	GOARCH=${TARGETARCH} \
 	GOOS=${TARGETOS} \
 	go build \
-		-o /opt/package/bin/mx \
+		-o /opt/package/bin/klara \
 		main.go
 
 
@@ -34,5 +33,5 @@ RUN \
 COPY --from=builder /opt/package /opt/package
 
 WORKDIR /opt/package
-ENTRYPOINT [ "bin/mx" ]
+ENTRYPOINT [ "bin/klara" ]
 EXPOSE 50051
