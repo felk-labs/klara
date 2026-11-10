@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/pb"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/pb"
 )
 
 type accounts struct {

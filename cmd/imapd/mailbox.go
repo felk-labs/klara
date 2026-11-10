@@ -16,8 +16,8 @@ import (
 	"github.com/uatuko/go-imap/backend/backendutil"
 	"github.com/uatuko/go-message/textproto"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/storage"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/storage"
 )
 
 const (

@@ -15,11 +15,11 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/events"
-	"github.com/klara-to/mx/internal/kms"
-	"github.com/klara-to/mx/internal/srv"
-	"github.com/klara-to/mx/internal/storage"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/events"
+	"go.klara.mx/internal/kms"
+	"go.klara.mx/internal/srv"
+	"go.klara.mx/internal/storage"
 )
 
 var (

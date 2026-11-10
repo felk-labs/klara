@@ -1,4 +1,4 @@
-module github.com/klara-to/mx
+module go.klara.mx
 
 go 1.26.0
 

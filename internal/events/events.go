@@ -7,7 +7,7 @@ import (
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/klara-to/mx/internal/pb"
+	"go.klara.mx/internal/pb"
 )
 
 const (

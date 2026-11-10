@@ -8,7 +8,7 @@ import (
 
 	imapbe "github.com/uatuko/go-imap/backend"
 
-	"github.com/klara-to/mx/internal/db"
+	"go.klara.mx/internal/db"
 )
 
 type user struct {

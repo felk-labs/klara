@@ -5,7 +5,7 @@ package mta
 import (
 	"context"
 
-	"github.com/klara-to/mx/internal/pb"
+	"go.klara.mx/internal/pb"
 	"google.golang.org/grpc"
 )
 

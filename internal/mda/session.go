@@ -10,10 +10,10 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/uatuko/go-smtp"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/events"
-	pbi "github.com/klara-to/mx/internal/pb"
-	"github.com/klara-to/mx/pb"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/events"
+	pbi "go.klara.mx/internal/pb"
+	"go.klara.mx/pb"
 )
 
 type SessionOpts struct {

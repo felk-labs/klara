@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/uatuko/go-message"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/events"
-	"github.com/klara-to/mx/pb"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/events"
+	"go.klara.mx/pb"
 )
 
 func TestMailSend(t *testing.T) {

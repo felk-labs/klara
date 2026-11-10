@@ -12,10 +12,10 @@ import (
 	m "github.com/uatuko/go-message/mail"
 	"github.com/uatuko/go-message/textproto"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/events"
-	pbi "github.com/klara-to/mx/internal/pb"
-	"github.com/klara-to/mx/pb"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/events"
+	pbi "go.klara.mx/internal/pb"
+	"go.klara.mx/pb"
 )
 
 const (

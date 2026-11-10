@@ -13,9 +13,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/kms"
-	"github.com/klara-to/mx/internal/pb"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/kms"
+	"go.klara.mx/internal/pb"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/uatuko/go-message"

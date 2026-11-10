@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/kms"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/kms"
 )
 
 func TestMain(m *testing.M) {
