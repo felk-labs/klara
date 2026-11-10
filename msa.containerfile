@@ -8,7 +8,6 @@ COPY cmd/msa/ /tmp/buildroot/cmd/msa/
 COPY internal/ /tmp/buildroot/internal/
 COPY pb/ /tmp/buildroot/pb/
 COPY valid/ /tmp/buildroot/valid/
-COPY vendor/ /tmp/buildroot/vendor/
 
 RUN \
 	cd /tmp/buildroot \
