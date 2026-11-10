@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.12
 // 	protoc        v7.36.2
-// source: klara/mx/detail/mta.proto
+// source: klara/detail/mta.proto
 
 package pb
 
@@ -35,7 +35,7 @@ type MtaTransferRequest struct {
 
 func (x *MtaTransferRequest) Reset() {
 	*x = MtaTransferRequest{}
-	mi := &file_klara_mx_detail_mta_proto_msgTypes[0]
+	mi := &file_klara_detail_mta_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -47,7 +47,7 @@ func (x *MtaTransferRequest) String() string {
 func (*MtaTransferRequest) ProtoMessage() {}
 
 func (x *MtaTransferRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_detail_mta_proto_msgTypes[0]
+	mi := &file_klara_detail_mta_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +60,7 @@ func (x *MtaTransferRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MtaTransferRequest.ProtoReflect.Descriptor instead.
 func (*MtaTransferRequest) Descriptor() ([]byte, []int) {
-	return file_klara_mx_detail_mta_proto_rawDescGZIP(), []int{0}
+	return file_klara_detail_mta_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *MtaTransferRequest) GetReturnPath() string {
@@ -92,7 +92,7 @@ type MtaTransferResponse struct {
 
 func (x *MtaTransferResponse) Reset() {
 	*x = MtaTransferResponse{}
-	mi := &file_klara_mx_detail_mta_proto_msgTypes[1]
+	mi := &file_klara_detail_mta_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -104,7 +104,7 @@ func (x *MtaTransferResponse) String() string {
 func (*MtaTransferResponse) ProtoMessage() {}
 
 func (x *MtaTransferResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_detail_mta_proto_msgTypes[1]
+	mi := &file_klara_detail_mta_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -117,14 +117,14 @@ func (x *MtaTransferResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MtaTransferResponse.ProtoReflect.Descriptor instead.
 func (*MtaTransferResponse) Descriptor() ([]byte, []int) {
-	return file_klara_mx_detail_mta_proto_rawDescGZIP(), []int{1}
+	return file_klara_detail_mta_proto_rawDescGZIP(), []int{1}
 }
 
-var File_klara_mx_detail_mta_proto protoreflect.FileDescriptor
+var File_klara_detail_mta_proto protoreflect.FileDescriptor
 
-const file_klara_mx_detail_mta_proto_rawDesc = "" +
+const file_klara_detail_mta_proto_rawDesc = "" +
 	"\n" +
-	"\x19klara/mx/detail/mta.proto\x12\x0fklara.mx.detail\"i\n" +
+	"\x16klara/detail/mta.proto\x12\fklara.detail\"i\n" +
 	"\x12MtaTransferRequest\x12\x1f\n" +
 	"\vreturn_path\x18\x01 \x01(\tR\n" +
 	"returnPath\x12\x1e\n" +
@@ -132,30 +132,30 @@ const file_klara_mx_detail_mta_proto_rawDesc = "" +
 	"recipients\x18\x02 \x03(\tR\n" +
 	"recipients\x12\x12\n" +
 	"\x04data\x18\x03 \x01(\fR\x04data\"\x15\n" +
-	"\x13MtaTransferResponse2\\\n" +
-	"\x03Mta\x12U\n" +
-	"\bTransfer\x12#.klara.mx.detail.MtaTransferRequest\x1a$.klara.mx.detail.MtaTransferResponseB\x19Z\x17go.klara.mx/internal/pbb\x06proto3"
+	"\x13MtaTransferResponse2V\n" +
+	"\x03Mta\x12O\n" +
+	"\bTransfer\x12 .klara.detail.MtaTransferRequest\x1a!.klara.detail.MtaTransferResponseB\x19Z\x17go.klara.mx/internal/pbb\x06proto3"
 
 var (
-	file_klara_mx_detail_mta_proto_rawDescOnce sync.Once
-	file_klara_mx_detail_mta_proto_rawDescData []byte
+	file_klara_detail_mta_proto_rawDescOnce sync.Once
+	file_klara_detail_mta_proto_rawDescData []byte
 )
 
-func file_klara_mx_detail_mta_proto_rawDescGZIP() []byte {
-	file_klara_mx_detail_mta_proto_rawDescOnce.Do(func() {
-		file_klara_mx_detail_mta_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_klara_mx_detail_mta_proto_rawDesc), len(file_klara_mx_detail_mta_proto_rawDesc)))
+func file_klara_detail_mta_proto_rawDescGZIP() []byte {
+	file_klara_detail_mta_proto_rawDescOnce.Do(func() {
+		file_klara_detail_mta_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_klara_detail_mta_proto_rawDesc), len(file_klara_detail_mta_proto_rawDesc)))
 	})
-	return file_klara_mx_detail_mta_proto_rawDescData
+	return file_klara_detail_mta_proto_rawDescData
 }
 
-var file_klara_mx_detail_mta_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_klara_mx_detail_mta_proto_goTypes = []any{
-	(*MtaTransferRequest)(nil),  // 0: klara.mx.detail.MtaTransferRequest
-	(*MtaTransferResponse)(nil), // 1: klara.mx.detail.MtaTransferResponse
+var file_klara_detail_mta_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_klara_detail_mta_proto_goTypes = []any{
+	(*MtaTransferRequest)(nil),  // 0: klara.detail.MtaTransferRequest
+	(*MtaTransferResponse)(nil), // 1: klara.detail.MtaTransferResponse
 }
-var file_klara_mx_detail_mta_proto_depIdxs = []int32{
-	0, // 0: klara.mx.detail.Mta.Transfer:input_type -> klara.mx.detail.MtaTransferRequest
-	1, // 1: klara.mx.detail.Mta.Transfer:output_type -> klara.mx.detail.MtaTransferResponse
+var file_klara_detail_mta_proto_depIdxs = []int32{
+	0, // 0: klara.detail.Mta.Transfer:input_type -> klara.detail.MtaTransferRequest
+	1, // 1: klara.detail.Mta.Transfer:output_type -> klara.detail.MtaTransferResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -163,26 +163,26 @@ var file_klara_mx_detail_mta_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_klara_mx_detail_mta_proto_init() }
-func file_klara_mx_detail_mta_proto_init() {
-	if File_klara_mx_detail_mta_proto != nil {
+func init() { file_klara_detail_mta_proto_init() }
+func file_klara_detail_mta_proto_init() {
+	if File_klara_detail_mta_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_klara_mx_detail_mta_proto_rawDesc), len(file_klara_mx_detail_mta_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_klara_detail_mta_proto_rawDesc), len(file_klara_detail_mta_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_klara_mx_detail_mta_proto_goTypes,
-		DependencyIndexes: file_klara_mx_detail_mta_proto_depIdxs,
-		MessageInfos:      file_klara_mx_detail_mta_proto_msgTypes,
+		GoTypes:           file_klara_detail_mta_proto_goTypes,
+		DependencyIndexes: file_klara_detail_mta_proto_depIdxs,
+		MessageInfos:      file_klara_detail_mta_proto_msgTypes,
 	}.Build()
-	File_klara_mx_detail_mta_proto = out.File
-	file_klara_mx_detail_mta_proto_goTypes = nil
-	file_klara_mx_detail_mta_proto_depIdxs = nil
+	File_klara_detail_mta_proto = out.File
+	file_klara_detail_mta_proto_goTypes = nil
+	file_klara_detail_mta_proto_depIdxs = nil
 }

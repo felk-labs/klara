@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.2
 // - protoc             v7.36.2
-// source: klara/mx/v1/domains.proto
+// source: klara/v1/domains.proto
 
 package pb
 
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Domains_Create_FullMethodName = "/klara.mx.v1.Domains/Create"
+	Domains_Create_FullMethodName = "/klara.v1.Domains/Create"
 )
 
 // DomainsClient is the client API for Domains service.
@@ -108,7 +108,7 @@ func _Domains_Create_Handler(srv interface{}, ctx context.Context, dec func(inte
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Domains_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "klara.mx.v1.Domains",
+	ServiceName: "klara.v1.Domains",
 	HandlerType: (*DomainsServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -117,5 +117,5 @@ var Domains_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "klara/mx/v1/domains.proto",
+	Metadata: "klara/v1/domains.proto",
 }

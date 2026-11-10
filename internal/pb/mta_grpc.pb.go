@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.2
 // - protoc             v7.36.2
-// source: klara/mx/detail/mta.proto
+// source: klara/detail/mta.proto
 
 package pb
 
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Mta_Transfer_FullMethodName = "/klara.mx.detail.Mta/Transfer"
+	Mta_Transfer_FullMethodName = "/klara.detail.Mta/Transfer"
 )
 
 // MtaClient is the client API for Mta service.
@@ -108,7 +108,7 @@ func _Mta_Transfer_Handler(srv interface{}, ctx context.Context, dec func(interf
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Mta_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "klara.mx.detail.Mta",
+	ServiceName: "klara.detail.Mta",
 	HandlerType: (*MtaServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -117,5 +117,5 @@ var Mta_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "klara/mx/detail/mta.proto",
+	Metadata: "klara/detail/mta.proto",
 }

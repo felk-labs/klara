@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.12
 // 	protoc        v7.36.2
-// source: klara/mx/v1/domains.proto
+// source: klara/v1/domains.proto
 
 package pb
 
@@ -31,7 +31,7 @@ type Domain struct {
 
 func (x *Domain) Reset() {
 	*x = Domain{}
-	mi := &file_klara_mx_v1_domains_proto_msgTypes[0]
+	mi := &file_klara_v1_domains_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *Domain) String() string {
 func (*Domain) ProtoMessage() {}
 
 func (x *Domain) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_v1_domains_proto_msgTypes[0]
+	mi := &file_klara_v1_domains_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *Domain) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Domain.ProtoReflect.Descriptor instead.
 func (*Domain) Descriptor() ([]byte, []int) {
-	return file_klara_mx_v1_domains_proto_rawDescGZIP(), []int{0}
+	return file_klara_v1_domains_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Domain) GetId() string {
@@ -82,7 +82,7 @@ type DomainsCreateRequest struct {
 
 func (x *DomainsCreateRequest) Reset() {
 	*x = DomainsCreateRequest{}
-	mi := &file_klara_mx_v1_domains_proto_msgTypes[1]
+	mi := &file_klara_v1_domains_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -94,7 +94,7 @@ func (x *DomainsCreateRequest) String() string {
 func (*DomainsCreateRequest) ProtoMessage() {}
 
 func (x *DomainsCreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_v1_domains_proto_msgTypes[1]
+	mi := &file_klara_v1_domains_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -107,7 +107,7 @@ func (x *DomainsCreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DomainsCreateRequest.ProtoReflect.Descriptor instead.
 func (*DomainsCreateRequest) Descriptor() ([]byte, []int) {
-	return file_klara_mx_v1_domains_proto_rawDescGZIP(), []int{1}
+	return file_klara_v1_domains_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *DomainsCreateRequest) GetName() string {
@@ -126,7 +126,7 @@ type DomainsCreateResponse struct {
 
 func (x *DomainsCreateResponse) Reset() {
 	*x = DomainsCreateResponse{}
-	mi := &file_klara_mx_v1_domains_proto_msgTypes[2]
+	mi := &file_klara_v1_domains_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -138,7 +138,7 @@ func (x *DomainsCreateResponse) String() string {
 func (*DomainsCreateResponse) ProtoMessage() {}
 
 func (x *DomainsCreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_mx_v1_domains_proto_msgTypes[2]
+	mi := &file_klara_v1_domains_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -151,7 +151,7 @@ func (x *DomainsCreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DomainsCreateResponse.ProtoReflect.Descriptor instead.
 func (*DomainsCreateResponse) Descriptor() ([]byte, []int) {
-	return file_klara_mx_v1_domains_proto_rawDescGZIP(), []int{2}
+	return file_klara_v1_domains_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *DomainsCreateResponse) GetDomain() *Domain {
@@ -161,43 +161,43 @@ func (x *DomainsCreateResponse) GetDomain() *Domain {
 	return nil
 }
 
-var File_klara_mx_v1_domains_proto protoreflect.FileDescriptor
+var File_klara_v1_domains_proto protoreflect.FileDescriptor
 
-const file_klara_mx_v1_domains_proto_rawDesc = "" +
+const file_klara_v1_domains_proto_rawDesc = "" +
 	"\n" +
-	"\x19klara/mx/v1/domains.proto\x12\vklara.mx.v1\",\n" +
+	"\x16klara/v1/domains.proto\x12\bklara.v1\",\n" +
 	"\x06Domain\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"*\n" +
 	"\x14DomainsCreateRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\"D\n" +
-	"\x15DomainsCreateResponse\x12+\n" +
-	"\x06domain\x18\x01 \x01(\v2\x13.klara.mx.v1.DomainR\x06domain2Z\n" +
-	"\aDomains\x12O\n" +
-	"\x06Create\x12!.klara.mx.v1.DomainsCreateRequest\x1a\".klara.mx.v1.DomainsCreateResponseB\x10Z\x0ego.klara.mx/pbb\x06proto3"
+	"\x04name\x18\x01 \x01(\tR\x04name\"A\n" +
+	"\x15DomainsCreateResponse\x12(\n" +
+	"\x06domain\x18\x01 \x01(\v2\x10.klara.v1.DomainR\x06domain2T\n" +
+	"\aDomains\x12I\n" +
+	"\x06Create\x12\x1e.klara.v1.DomainsCreateRequest\x1a\x1f.klara.v1.DomainsCreateResponseB\x10Z\x0ego.klara.mx/pbb\x06proto3"
 
 var (
-	file_klara_mx_v1_domains_proto_rawDescOnce sync.Once
-	file_klara_mx_v1_domains_proto_rawDescData []byte
+	file_klara_v1_domains_proto_rawDescOnce sync.Once
+	file_klara_v1_domains_proto_rawDescData []byte
 )
 
-func file_klara_mx_v1_domains_proto_rawDescGZIP() []byte {
-	file_klara_mx_v1_domains_proto_rawDescOnce.Do(func() {
-		file_klara_mx_v1_domains_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_klara_mx_v1_domains_proto_rawDesc), len(file_klara_mx_v1_domains_proto_rawDesc)))
+func file_klara_v1_domains_proto_rawDescGZIP() []byte {
+	file_klara_v1_domains_proto_rawDescOnce.Do(func() {
+		file_klara_v1_domains_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_klara_v1_domains_proto_rawDesc), len(file_klara_v1_domains_proto_rawDesc)))
 	})
-	return file_klara_mx_v1_domains_proto_rawDescData
+	return file_klara_v1_domains_proto_rawDescData
 }
 
-var file_klara_mx_v1_domains_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_klara_mx_v1_domains_proto_goTypes = []any{
-	(*Domain)(nil),                // 0: klara.mx.v1.Domain
-	(*DomainsCreateRequest)(nil),  // 1: klara.mx.v1.DomainsCreateRequest
-	(*DomainsCreateResponse)(nil), // 2: klara.mx.v1.DomainsCreateResponse
+var file_klara_v1_domains_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_klara_v1_domains_proto_goTypes = []any{
+	(*Domain)(nil),                // 0: klara.v1.Domain
+	(*DomainsCreateRequest)(nil),  // 1: klara.v1.DomainsCreateRequest
+	(*DomainsCreateResponse)(nil), // 2: klara.v1.DomainsCreateResponse
 }
-var file_klara_mx_v1_domains_proto_depIdxs = []int32{
-	0, // 0: klara.mx.v1.DomainsCreateResponse.domain:type_name -> klara.mx.v1.Domain
-	1, // 1: klara.mx.v1.Domains.Create:input_type -> klara.mx.v1.DomainsCreateRequest
-	2, // 2: klara.mx.v1.Domains.Create:output_type -> klara.mx.v1.DomainsCreateResponse
+var file_klara_v1_domains_proto_depIdxs = []int32{
+	0, // 0: klara.v1.DomainsCreateResponse.domain:type_name -> klara.v1.Domain
+	1, // 1: klara.v1.Domains.Create:input_type -> klara.v1.DomainsCreateRequest
+	2, // 2: klara.v1.Domains.Create:output_type -> klara.v1.DomainsCreateResponse
 	2, // [2:3] is the sub-list for method output_type
 	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -205,26 +205,26 @@ var file_klara_mx_v1_domains_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_klara_mx_v1_domains_proto_init() }
-func file_klara_mx_v1_domains_proto_init() {
-	if File_klara_mx_v1_domains_proto != nil {
+func init() { file_klara_v1_domains_proto_init() }
+func file_klara_v1_domains_proto_init() {
+	if File_klara_v1_domains_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_klara_mx_v1_domains_proto_rawDesc), len(file_klara_mx_v1_domains_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_klara_v1_domains_proto_rawDesc), len(file_klara_v1_domains_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_klara_mx_v1_domains_proto_goTypes,
-		DependencyIndexes: file_klara_mx_v1_domains_proto_depIdxs,
-		MessageInfos:      file_klara_mx_v1_domains_proto_msgTypes,
+		GoTypes:           file_klara_v1_domains_proto_goTypes,
+		DependencyIndexes: file_klara_v1_domains_proto_depIdxs,
+		MessageInfos:      file_klara_v1_domains_proto_msgTypes,
 	}.Build()
-	File_klara_mx_v1_domains_proto = out.File
-	file_klara_mx_v1_domains_proto_goTypes = nil
-	file_klara_mx_v1_domains_proto_depIdxs = nil
+	File_klara_v1_domains_proto = out.File
+	file_klara_v1_domains_proto_goTypes = nil
+	file_klara_v1_domains_proto_depIdxs = nil
 }
