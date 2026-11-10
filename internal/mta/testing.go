@@ -5,8 +5,9 @@ package mta
 import (
 	"context"
 
-	"github.com/klara-to/mx/internal/pb"
 	"google.golang.org/grpc"
+
+	"go.klara.mx/internal/pb"
 )
 
 type mockMtaTransferCb func(ctx context.Context, req *pb.MtaTransferRequest) (*pb.MtaTransferResponse, error)

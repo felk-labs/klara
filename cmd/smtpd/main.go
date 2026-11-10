@@ -15,8 +15,8 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/uatuko/go-smtp"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/events"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/events"
 )
 
 var (

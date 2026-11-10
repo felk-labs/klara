@@ -11,8 +11,8 @@ import (
 	"github.com/uatuko/go-message"
 	"github.com/uatuko/go-message/mail"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/storage"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/storage"
 )
 
 // Deliver handles local delivery of inbound mail by storing it in the recipients' inboxes.

@@ -17,8 +17,8 @@ import (
 	"github.com/uatuko/go-smtp"
 	"google.golang.org/grpc"
 
-	"github.com/klara-to/mx/internal/pb"
-	"github.com/klara-to/mx/internal/srv"
+	"go.klara.mx/internal/pb"
+	"go.klara.mx/internal/srv"
 )
 
 var (

@@ -11,9 +11,9 @@ import (
 	"github.com/uatuko/go-message/mail"
 	"github.com/uatuko/go-msgauth/dkim"
 
-	"github.com/klara-to/mx/internal/db"
-	"github.com/klara-to/mx/internal/kms"
-	"github.com/klara-to/mx/internal/pb"
+	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/kms"
+	"go.klara.mx/internal/pb"
 )
 
 const maxTransferAttempts = 3

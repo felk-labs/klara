@@ -12,7 +12,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/credentials/oauth"
 
-	"github.com/klara-to/mx/internal/pb"
+	"go.klara.mx/internal/pb"
 )
 
 func newMtaClient(ctx context.Context, mtaAddr string, mtaAud string) (pb.MtaClient, error) {

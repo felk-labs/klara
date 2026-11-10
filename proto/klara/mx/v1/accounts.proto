@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package klara.mx.v1;
 
-option go_package = "github.com/klara-to/mx/pb";
+option go_package = "go.klara.mx/pb";
 
 service Accounts {
 	rpc Create(AccountsCreateRequest) returns (AccountsCreateResponse);

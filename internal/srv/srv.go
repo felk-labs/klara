@@ -8,7 +8,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/klara-to/mx/pb"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
@@ -17,6 +16,8 @@ import (
 	"google.golang.org/grpc/status"
 
 	tknz "go.tknz.dev/pb"
+
+	"go.klara.mx/pb"
 )
 
 const (

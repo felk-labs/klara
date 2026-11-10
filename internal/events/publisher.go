@@ -3,7 +3,7 @@ package events
 import (
 	"context"
 
-	"github.com/klara-to/mx/internal/pb"
+	"go.klara.mx/internal/pb"
 )
 
 var publisher Publisher

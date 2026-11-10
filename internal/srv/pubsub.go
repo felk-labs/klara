@@ -8,11 +8,11 @@ import (
 
 	"github.com/rs/zerolog"
 
-	"github.com/klara-to/mx/internal/events"
-	"github.com/klara-to/mx/internal/mda"
-	"github.com/klara-to/mx/internal/mta"
-	pbi "github.com/klara-to/mx/internal/pb"
-	"github.com/klara-to/mx/pb"
+	"go.klara.mx/internal/events"
+	"go.klara.mx/internal/mda"
+	"go.klara.mx/internal/mta"
+	pbi "go.klara.mx/internal/pb"
+	"go.klara.mx/pb"
 )
 
 type pubsubMessage struct {

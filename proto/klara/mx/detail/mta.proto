@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package klara.mx.detail;
 
-option go_package = "github.com/klara-to/mx/internal/pb";
+option go_package = "go.klara.mx/internal/pb";
 
 service Mta {
 	rpc Transfer(MtaTransferRequest) returns (MtaTransferResponse);

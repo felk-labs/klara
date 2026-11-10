@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/klara-to/mx/internal/mta"
 	"github.com/uatuko/go-smtp"
+
+	"go.klara.mx/internal/mta"
 )
 
 type backend struct{}

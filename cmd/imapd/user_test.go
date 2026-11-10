@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/uatuko/go-imap"
 
-	"github.com/klara-to/mx/internal/db"
+	"go.klara.mx/internal/db"
 )
 
 func TestUserGetMailbox(t *testing.T) {

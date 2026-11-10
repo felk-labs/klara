@@ -11,7 +11,7 @@ import (
 	"github.com/uatuko/go-imap"
 	imapbe "github.com/uatuko/go-imap/backend"
 
-	"github.com/klara-to/mx/internal/db"
+	"go.klara.mx/internal/db"
 )
 
 func TestCannonicalMailboxName(t *testing.T) {
