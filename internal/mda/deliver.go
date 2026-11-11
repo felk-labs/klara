@@ -119,7 +119,7 @@ func Deliver(ctx context.Context, mailId string) error {
 }
 
 func deliver(ctx context.Context, rcpt string, data []byte, msgAttrs db.MsgAttrs) error {
-	log := zerolog.Ctx(ctx).With().Str("recipient", rcpt).Logger()
+	log := zerolog.Ctx(ctx)
 
 	acct, err := db.RetrieveAcctByEmail(ctx, rcpt)
 	if err != nil {
@@ -151,8 +151,8 @@ func deliver(ctx context.Context, rcpt string, data []byte, msgAttrs db.MsgAttrs
 		&pbi.Event{
 			Data: &pbi.Event_Msg{
 				Msg: &pbi.EventDataMsg{
-					Id:        msg.Id(),
-					MailboxId: inbox.Id(),
+					Id:     msg.Id(),
+					MboxId: inbox.Id(),
 				},
 			},
 		},
@@ -161,8 +161,8 @@ func deliver(ctx context.Context, rcpt string, data []byte, msgAttrs db.MsgAttrs
 		log.Error().
 			Err(err).
 			Str("msg_id", msg.Id()).
-			Str("inbox_id", inbox.Id()).
-			Msg("failed to publish msg event for delivery")
+			Str("mbox_id", inbox.Id()).
+			Msg("failed to publish mailbox message event")
 	}
 
 	return err
