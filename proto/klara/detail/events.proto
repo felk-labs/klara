@@ -31,3 +31,8 @@ message EventDataMail {
 	klara.v1.MailType   type   = 2;
 	klara.v1.MailStatus status = 3;
 }
+
+message EventDataMsg {
+	string id         = 1;
+	string mailbox_id = 2;
+}
