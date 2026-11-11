@@ -162,7 +162,7 @@ func deliver(ctx context.Context, rcpt string, data []byte, msgAttrs db.MsgAttrs
 			Err(err).
 			Str("msg_id", msg.Id()).
 			Str("inbox_id", inbox.Id()).
-			Msg("failed to publish mail event for delivery")
+			Msg("failed to publish msg event for delivery")
 	}
 
 	return err
