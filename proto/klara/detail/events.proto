@@ -35,5 +35,5 @@ message EventDataMail {
 
 message EventDataMsg {
 	string id         = 1;
-	string mailbox_id = 2;
+	string mbox_id = 2;
 }

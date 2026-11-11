@@ -198,7 +198,7 @@ func (x *EventDataMail) GetStatus() pb.MailStatus {
 type EventDataMsg struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	MailboxId     string                 `protobuf:"bytes,2,opt,name=mailbox_id,json=mailboxId,proto3" json:"mailbox_id,omitempty"`
+	MboxId        string                 `protobuf:"bytes,2,opt,name=mbox_id,json=mboxId,proto3" json:"mbox_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -240,9 +240,9 @@ func (x *EventDataMsg) GetId() string {
 	return ""
 }
 
-func (x *EventDataMsg) GetMailboxId() string {
+func (x *EventDataMsg) GetMboxId() string {
 	if x != nil {
-		return x.MailboxId
+		return x.MboxId
 	}
 	return ""
 }
@@ -267,11 +267,10 @@ const file_klara_detail_events_proto_rawDesc = "" +
 	"\rEventDataMail\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12&\n" +
 	"\x04type\x18\x02 \x01(\x0e2\x12.klara.v1.MailTypeR\x04type\x12,\n" +
-	"\x06status\x18\x03 \x01(\x0e2\x14.klara.v1.MailStatusR\x06status\"=\n" +
+	"\x06status\x18\x03 \x01(\x0e2\x14.klara.v1.MailStatusR\x06status\"7\n" +
 	"\fEventDataMsg\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
-	"\n" +
-	"mailbox_id\x18\x02 \x01(\tR\tmailboxIdB\x19Z\x17go.klara.mx/internal/pbb\x06proto3"
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
+	"\ambox_id\x18\x02 \x01(\tR\x06mboxIdB\x19Z\x17go.klara.mx/internal/pbb\x06proto3"
 
 var (
 	file_klara_detail_events_proto_rawDescOnce sync.Once
