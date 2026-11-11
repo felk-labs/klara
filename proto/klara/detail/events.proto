@@ -22,6 +22,7 @@ message Event {
 	// Event data
 	oneof data {
 		EventDataMail mail = 4;
+		EventDataMsg msg = 5;
 	}
 }
 

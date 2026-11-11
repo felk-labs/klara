@@ -37,6 +37,7 @@ type Event struct {
 	// Types that are valid to be assigned to Data:
 	//
 	//	*Event_Mail
+	//	*Event_Msg
 	Data          isEvent_Data `protobuf_oneof:"data"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -109,6 +110,15 @@ func (x *Event) GetMail() *EventDataMail {
 	return nil
 }
 
+func (x *Event) GetMsg() *EventDataMsg {
+	if x != nil {
+		if x, ok := x.Data.(*Event_Msg); ok {
+			return x.Msg
+		}
+	}
+	return nil
+}
+
 type isEvent_Data interface {
 	isEvent_Data()
 }
@@ -117,7 +127,13 @@ type Event_Mail struct {
 	Mail *EventDataMail `protobuf:"bytes,4,opt,name=mail,proto3,oneof"`
 }
 
+type Event_Msg struct {
+	Msg *EventDataMsg `protobuf:"bytes,5,opt,name=msg,proto3,oneof"`
+}
+
 func (*Event_Mail) isEvent_Data() {}
+
+func (*Event_Msg) isEvent_Data() {}
 
 type EventDataMail struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -235,12 +251,13 @@ var File_klara_detail_events_proto protoreflect.FileDescriptor
 
 const file_klara_detail_events_proto_rawDesc = "" +
 	"\n" +
-	"\x19klara/detail/events.proto\x12\fklara.detail\x1a\x13klara/v1/mail.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa7\x02\n" +
+	"\x19klara/detail/events.proto\x12\fklara.detail\x1a\x13klara/v1/mail.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd7\x02\n" +
 	"\x05Event\x128\n" +
 	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x124\n" +
 	"\x05attrs\x18\x02 \x03(\v2\x1e.klara.detail.Event.AttrsEntryR\x05attrs\x120\n" +
 	"\x04meta\x18\x03 \x01(\v2\x17.google.protobuf.StructH\x01R\x04meta\x88\x01\x01\x121\n" +
-	"\x04mail\x18\x04 \x01(\v2\x1b.klara.detail.EventDataMailH\x00R\x04mail\x1a8\n" +
+	"\x04mail\x18\x04 \x01(\v2\x1b.klara.detail.EventDataMailH\x00R\x04mail\x12.\n" +
+	"\x03msg\x18\x05 \x01(\v2\x1a.klara.detail.EventDataMsgH\x00R\x03msg\x1a8\n" +
 	"\n" +
 	"AttrsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -284,13 +301,14 @@ var file_klara_detail_events_proto_depIdxs = []int32{
 	3, // 1: klara.detail.Event.attrs:type_name -> klara.detail.Event.AttrsEntry
 	5, // 2: klara.detail.Event.meta:type_name -> google.protobuf.Struct
 	1, // 3: klara.detail.Event.mail:type_name -> klara.detail.EventDataMail
-	6, // 4: klara.detail.EventDataMail.type:type_name -> klara.v1.MailType
-	7, // 5: klara.detail.EventDataMail.status:type_name -> klara.v1.MailStatus
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	2, // 4: klara.detail.Event.msg:type_name -> klara.detail.EventDataMsg
+	6, // 5: klara.detail.EventDataMail.type:type_name -> klara.v1.MailType
+	7, // 6: klara.detail.EventDataMail.status:type_name -> klara.v1.MailStatus
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_klara_detail_events_proto_init() }
@@ -300,6 +318,7 @@ func file_klara_detail_events_proto_init() {
 	}
 	file_klara_detail_events_proto_msgTypes[0].OneofWrappers = []any{
 		(*Event_Mail)(nil),
+		(*Event_Msg)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
