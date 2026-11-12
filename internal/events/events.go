@@ -42,6 +42,8 @@ func (ev *Event) attrs() map[string]string {
 	switch ev.pbEv.Data.(type) {
 	case *pb.Event_Mail:
 		name = "mail"
+	case *pb.Event_Msg:
+		name = "message"
 	default:
 		name = "unknown"
 	}
