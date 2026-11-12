@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package klara.v1;
+
+option go_package = "go.klara.mx/pb";
+
+service Mailboxes {
+	rpc Retrieve(MailboxMessageRetrieveRequest) returns (MailboxMessageRetrieveResponse);
+}
+
+message MailboxMessageRetrieveRequest {
+	string id         = 1;
+	string mailbox_id = 2;
+}
+
+message MailboxMessageRetrieveResponse {
+	MailboxMessage msg = 1;
+}
+
+message MailboxMessage {
+	string id         = 1;
+	string mailbox_id = 2;
+	uint32 uid        = 3;
+	bytes  raw        = 4;
+}
