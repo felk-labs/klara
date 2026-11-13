@@ -9,7 +9,7 @@ service Mailboxes {
 }
 
 message MailboxMsgRetrieveRequest {
-	string msg_id         = 1;
+	string msg_id  = 1;
 	string mbox_id = 2;
 }
 
@@ -18,8 +18,8 @@ message MailboxMsgRetrieveResponse {
 }
 
 message MailboxMsg {
-	string msg_id         = 1;
+	string msg_id  = 1;
 	string mbox_id = 2;
-	uint32 uid        = 3;
-	string  data        = 4;
+	uint32 uid     = 3;
+	string data    = 4;
 }
