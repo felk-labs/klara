@@ -20,20 +20,29 @@ type mailboxes struct {
 	pb.UnimplementedMailboxesServer
 }
 
-func (*mailboxes) Retrieve(ctx context.Context, req *pb.MailboxMessageRetrieveRequest) (*pb.MailboxMessageRetrieveResponse, error) {
-	msg, err := db.RetrieveMsg(ctx, req.GetId(), req.GetMailboxId())
+func (*mailboxes) RetrieveMsg(ctx context.Context, req *pb.MailboxMsgRetrieveRequest) (*pb.MailboxMsgRetrieveResponse, error) {
+	msg, err := db.RetrieveMsg(ctx, req.GetMsgId(), req.GetMboxId())
 	if err != nil {
-		mapDbErr(err)
+		if errors.Is(err, db.ErrNotFound) {
+			return nil, ErrNotFound
+		}
+		return nil, err
 	}
 
-	mbox, err := db.RetrieveMbox(ctx, req.GetMailboxId())
+	mbox, err := db.RetrieveMbox(ctx, req.GetMboxId())
 	if err != nil {
-		mapDbErr(err)
+		if errors.Is(err, db.ErrNotFound) {
+			return nil, ErrNotFound
+		}
+		return nil, err
 	}
 
 	acct, err := db.RetrieveAcct(ctx, mbox.AcctId())
 	if err != nil {
-		mapDbErr(err)
+		if errors.Is(err, db.ErrNotFound) {
+			return nil, ErrNotFound
+		}
+		return nil, err
 	}
 
 	r, err := newMailboxMessageReader(ctx, acct.Domain(), acct.Id(), msg.MboxId(), msg.Uid())
@@ -49,22 +58,12 @@ func (*mailboxes) Retrieve(ctx context.Context, req *pb.MailboxMessageRetrieveRe
 		return nil, ErrUnknown
 	}
 
-	return &pb.MailboxMessageRetrieveResponse{
-		Msg: &pb.MailboxMessage{
-			Id:        msg.Id(),
-			MailboxId: msg.MboxId(),
-			Uid:       msg.Uid(),
-			Raw:       data,
+	return &pb.MailboxMsgRetrieveResponse{
+		Msg: &pb.MailboxMsg{
+			MsgId:  msg.Id(),
+			MboxId: msg.MboxId(),
+			Uid:    msg.Uid(),
+			Data:   string(data),
 		},
 	}, nil
-}
-
-func mapDbErr(err error) error {
-	if errors.Is(err, db.ErrInvalidData) {
-		return ErrInvalidData
-	}
-	if errors.Is(err, db.ErrNotFound) {
-		return ErrNotFound
-	}
-	return err
 }
