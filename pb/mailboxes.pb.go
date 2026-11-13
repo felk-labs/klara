@@ -21,28 +21,28 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type MailboxMessageRetrieveRequest struct {
+type MailboxMsgRetrieveRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	MailboxId     string                 `protobuf:"bytes,2,opt,name=mailbox_id,json=mailboxId,proto3" json:"mailbox_id,omitempty"`
+	MsgId         string                 `protobuf:"bytes,1,opt,name=msg_id,json=msgId,proto3" json:"msg_id,omitempty"`
+	MboxId        string                 `protobuf:"bytes,2,opt,name=mbox_id,json=mboxId,proto3" json:"mbox_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MailboxMessageRetrieveRequest) Reset() {
-	*x = MailboxMessageRetrieveRequest{}
+func (x *MailboxMsgRetrieveRequest) Reset() {
+	*x = MailboxMsgRetrieveRequest{}
 	mi := &file_klara_v1_mailboxes_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MailboxMessageRetrieveRequest) String() string {
+func (x *MailboxMsgRetrieveRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MailboxMessageRetrieveRequest) ProtoMessage() {}
+func (*MailboxMsgRetrieveRequest) ProtoMessage() {}
 
-func (x *MailboxMessageRetrieveRequest) ProtoReflect() protoreflect.Message {
+func (x *MailboxMsgRetrieveRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_klara_v1_mailboxes_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,46 +54,46 @@ func (x *MailboxMessageRetrieveRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MailboxMessageRetrieveRequest.ProtoReflect.Descriptor instead.
-func (*MailboxMessageRetrieveRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use MailboxMsgRetrieveRequest.ProtoReflect.Descriptor instead.
+func (*MailboxMsgRetrieveRequest) Descriptor() ([]byte, []int) {
 	return file_klara_v1_mailboxes_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *MailboxMessageRetrieveRequest) GetId() string {
+func (x *MailboxMsgRetrieveRequest) GetMsgId() string {
 	if x != nil {
-		return x.Id
+		return x.MsgId
 	}
 	return ""
 }
 
-func (x *MailboxMessageRetrieveRequest) GetMailboxId() string {
+func (x *MailboxMsgRetrieveRequest) GetMboxId() string {
 	if x != nil {
-		return x.MailboxId
+		return x.MboxId
 	}
 	return ""
 }
 
-type MailboxMessageRetrieveResponse struct {
+type MailboxMsgRetrieveResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Msg           *MailboxMessage        `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+	Msg           *MailboxMsg            `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MailboxMessageRetrieveResponse) Reset() {
-	*x = MailboxMessageRetrieveResponse{}
+func (x *MailboxMsgRetrieveResponse) Reset() {
+	*x = MailboxMsgRetrieveResponse{}
 	mi := &file_klara_v1_mailboxes_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MailboxMessageRetrieveResponse) String() string {
+func (x *MailboxMsgRetrieveResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MailboxMessageRetrieveResponse) ProtoMessage() {}
+func (*MailboxMsgRetrieveResponse) ProtoMessage() {}
 
-func (x *MailboxMessageRetrieveResponse) ProtoReflect() protoreflect.Message {
+func (x *MailboxMsgRetrieveResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_klara_v1_mailboxes_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -105,42 +105,42 @@ func (x *MailboxMessageRetrieveResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MailboxMessageRetrieveResponse.ProtoReflect.Descriptor instead.
-func (*MailboxMessageRetrieveResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use MailboxMsgRetrieveResponse.ProtoReflect.Descriptor instead.
+func (*MailboxMsgRetrieveResponse) Descriptor() ([]byte, []int) {
 	return file_klara_v1_mailboxes_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *MailboxMessageRetrieveResponse) GetMsg() *MailboxMessage {
+func (x *MailboxMsgRetrieveResponse) GetMsg() *MailboxMsg {
 	if x != nil {
 		return x.Msg
 	}
 	return nil
 }
 
-type MailboxMessage struct {
+type MailboxMsg struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	MailboxId     string                 `protobuf:"bytes,2,opt,name=mailbox_id,json=mailboxId,proto3" json:"mailbox_id,omitempty"`
+	MsgId         string                 `protobuf:"bytes,1,opt,name=msg_id,json=msgId,proto3" json:"msg_id,omitempty"`
+	MboxId        string                 `protobuf:"bytes,2,opt,name=mbox_id,json=mboxId,proto3" json:"mbox_id,omitempty"`
 	Uid           uint32                 `protobuf:"varint,3,opt,name=uid,proto3" json:"uid,omitempty"`
-	Raw           []byte                 `protobuf:"bytes,4,opt,name=raw,proto3" json:"raw,omitempty"`
+	Data          string                 `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MailboxMessage) Reset() {
-	*x = MailboxMessage{}
+func (x *MailboxMsg) Reset() {
+	*x = MailboxMsg{}
 	mi := &file_klara_v1_mailboxes_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MailboxMessage) String() string {
+func (x *MailboxMsg) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MailboxMessage) ProtoMessage() {}
+func (*MailboxMsg) ProtoMessage() {}
 
-func (x *MailboxMessage) ProtoReflect() protoreflect.Message {
+func (x *MailboxMsg) ProtoReflect() protoreflect.Message {
 	mi := &file_klara_v1_mailboxes_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -152,58 +152,57 @@ func (x *MailboxMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MailboxMessage.ProtoReflect.Descriptor instead.
-func (*MailboxMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use MailboxMsg.ProtoReflect.Descriptor instead.
+func (*MailboxMsg) Descriptor() ([]byte, []int) {
 	return file_klara_v1_mailboxes_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *MailboxMessage) GetId() string {
+func (x *MailboxMsg) GetMsgId() string {
 	if x != nil {
-		return x.Id
+		return x.MsgId
 	}
 	return ""
 }
 
-func (x *MailboxMessage) GetMailboxId() string {
+func (x *MailboxMsg) GetMboxId() string {
 	if x != nil {
-		return x.MailboxId
+		return x.MboxId
 	}
 	return ""
 }
 
-func (x *MailboxMessage) GetUid() uint32 {
+func (x *MailboxMsg) GetUid() uint32 {
 	if x != nil {
 		return x.Uid
 	}
 	return 0
 }
 
-func (x *MailboxMessage) GetRaw() []byte {
+func (x *MailboxMsg) GetData() string {
 	if x != nil {
-		return x.Raw
+		return x.Data
 	}
-	return nil
+	return ""
 }
 
 var File_klara_v1_mailboxes_proto protoreflect.FileDescriptor
 
 const file_klara_v1_mailboxes_proto_rawDesc = "" +
 	"\n" +
-	"\x18klara/v1/mailboxes.proto\x12\bklara.v1\"N\n" +
-	"\x1dMailboxMessageRetrieveRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\x18klara/v1/mailboxes.proto\x12\bklara.v1\"K\n" +
+	"\x19MailboxMsgRetrieveRequest\x12\x15\n" +
+	"\x06msg_id\x18\x01 \x01(\tR\x05msgId\x12\x17\n" +
+	"\ambox_id\x18\x02 \x01(\tR\x06mboxId\"D\n" +
+	"\x1aMailboxMsgRetrieveResponse\x12&\n" +
+	"\x03msg\x18\x01 \x01(\v2\x14.klara.v1.MailboxMsgR\x03msg\"b\n" +
 	"\n" +
-	"mailbox_id\x18\x02 \x01(\tR\tmailboxId\"L\n" +
-	"\x1eMailboxMessageRetrieveResponse\x12*\n" +
-	"\x03msg\x18\x01 \x01(\v2\x18.klara.v1.MailboxMessageR\x03msg\"c\n" +
-	"\x0eMailboxMessage\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
-	"\n" +
-	"mailbox_id\x18\x02 \x01(\tR\tmailboxId\x12\x10\n" +
-	"\x03uid\x18\x03 \x01(\rR\x03uid\x12\x10\n" +
-	"\x03raw\x18\x04 \x01(\fR\x03raw2j\n" +
-	"\tMailboxes\x12]\n" +
-	"\bRetrieve\x12'.klara.v1.MailboxMessageRetrieveRequest\x1a(.klara.v1.MailboxMessageRetrieveResponseB\x10Z\x0ego.klara.mx/pbb\x06proto3"
+	"MailboxMsg\x12\x15\n" +
+	"\x06msg_id\x18\x01 \x01(\tR\x05msgId\x12\x17\n" +
+	"\ambox_id\x18\x02 \x01(\tR\x06mboxId\x12\x10\n" +
+	"\x03uid\x18\x03 \x01(\rR\x03uid\x12\x12\n" +
+	"\x04data\x18\x04 \x01(\tR\x04data2e\n" +
+	"\tMailboxes\x12X\n" +
+	"\vRetrieveMsg\x12#.klara.v1.MailboxMsgRetrieveRequest\x1a$.klara.v1.MailboxMsgRetrieveResponseB\x10Z\x0ego.klara.mx/pbb\x06proto3"
 
 var (
 	file_klara_v1_mailboxes_proto_rawDescOnce sync.Once
@@ -219,14 +218,14 @@ func file_klara_v1_mailboxes_proto_rawDescGZIP() []byte {
 
 var file_klara_v1_mailboxes_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_klara_v1_mailboxes_proto_goTypes = []any{
-	(*MailboxMessageRetrieveRequest)(nil),  // 0: klara.v1.MailboxMessageRetrieveRequest
-	(*MailboxMessageRetrieveResponse)(nil), // 1: klara.v1.MailboxMessageRetrieveResponse
-	(*MailboxMessage)(nil),                 // 2: klara.v1.MailboxMessage
+	(*MailboxMsgRetrieveRequest)(nil),  // 0: klara.v1.MailboxMsgRetrieveRequest
+	(*MailboxMsgRetrieveResponse)(nil), // 1: klara.v1.MailboxMsgRetrieveResponse
+	(*MailboxMsg)(nil),                 // 2: klara.v1.MailboxMsg
 }
 var file_klara_v1_mailboxes_proto_depIdxs = []int32{
-	2, // 0: klara.v1.MailboxMessageRetrieveResponse.msg:type_name -> klara.v1.MailboxMessage
-	0, // 1: klara.v1.Mailboxes.Retrieve:input_type -> klara.v1.MailboxMessageRetrieveRequest
-	1, // 2: klara.v1.Mailboxes.Retrieve:output_type -> klara.v1.MailboxMessageRetrieveResponse
+	2, // 0: klara.v1.MailboxMsgRetrieveResponse.msg:type_name -> klara.v1.MailboxMsg
+	0, // 1: klara.v1.Mailboxes.RetrieveMsg:input_type -> klara.v1.MailboxMsgRetrieveRequest
+	1, // 2: klara.v1.Mailboxes.RetrieveMsg:output_type -> klara.v1.MailboxMsgRetrieveResponse
 	2, // [2:3] is the sub-list for method output_type
 	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

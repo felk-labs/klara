@@ -19,14 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Mailboxes_Retrieve_FullMethodName = "/klara.v1.Mailboxes/Retrieve"
+	Mailboxes_RetrieveMsg_FullMethodName = "/klara.v1.Mailboxes/RetrieveMsg"
 )
 
 // MailboxesClient is the client API for Mailboxes service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MailboxesClient interface {
-	Retrieve(ctx context.Context, in *MailboxMessageRetrieveRequest, opts ...grpc.CallOption) (*MailboxMessageRetrieveResponse, error)
+	RetrieveMsg(ctx context.Context, in *MailboxMsgRetrieveRequest, opts ...grpc.CallOption) (*MailboxMsgRetrieveResponse, error)
 }
 
 type mailboxesClient struct {
@@ -37,10 +37,10 @@ func NewMailboxesClient(cc grpc.ClientConnInterface) MailboxesClient {
 	return &mailboxesClient{cc}
 }
 
-func (c *mailboxesClient) Retrieve(ctx context.Context, in *MailboxMessageRetrieveRequest, opts ...grpc.CallOption) (*MailboxMessageRetrieveResponse, error) {
+func (c *mailboxesClient) RetrieveMsg(ctx context.Context, in *MailboxMsgRetrieveRequest, opts ...grpc.CallOption) (*MailboxMsgRetrieveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MailboxMessageRetrieveResponse)
-	err := c.cc.Invoke(ctx, Mailboxes_Retrieve_FullMethodName, in, out, cOpts...)
+	out := new(MailboxMsgRetrieveResponse)
+	err := c.cc.Invoke(ctx, Mailboxes_RetrieveMsg_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func (c *mailboxesClient) Retrieve(ctx context.Context, in *MailboxMessageRetrie
 // All implementations must embed UnimplementedMailboxesServer
 // for forward compatibility.
 type MailboxesServer interface {
-	Retrieve(context.Context, *MailboxMessageRetrieveRequest) (*MailboxMessageRetrieveResponse, error)
+	RetrieveMsg(context.Context, *MailboxMsgRetrieveRequest) (*MailboxMsgRetrieveResponse, error)
 	mustEmbedUnimplementedMailboxesServer()
 }
 
@@ -62,8 +62,8 @@ type MailboxesServer interface {
 // pointer dereference when methods are called.
 type UnimplementedMailboxesServer struct{}
 
-func (UnimplementedMailboxesServer) Retrieve(context.Context, *MailboxMessageRetrieveRequest) (*MailboxMessageRetrieveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Retrieve not implemented")
+func (UnimplementedMailboxesServer) RetrieveMsg(context.Context, *MailboxMsgRetrieveRequest) (*MailboxMsgRetrieveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RetrieveMsg not implemented")
 }
 func (UnimplementedMailboxesServer) mustEmbedUnimplementedMailboxesServer() {}
 func (UnimplementedMailboxesServer) testEmbeddedByValue()                   {}
@@ -86,20 +86,20 @@ func RegisterMailboxesServer(s grpc.ServiceRegistrar, srv MailboxesServer) {
 	s.RegisterService(&Mailboxes_ServiceDesc, srv)
 }
 
-func _Mailboxes_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MailboxMessageRetrieveRequest)
+func _Mailboxes_RetrieveMsg_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MailboxMsgRetrieveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MailboxesServer).Retrieve(ctx, in)
+		return srv.(MailboxesServer).RetrieveMsg(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Mailboxes_Retrieve_FullMethodName,
+		FullMethod: Mailboxes_RetrieveMsg_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MailboxesServer).Retrieve(ctx, req.(*MailboxMessageRetrieveRequest))
+		return srv.(MailboxesServer).RetrieveMsg(ctx, req.(*MailboxMsgRetrieveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -112,8 +112,8 @@ var Mailboxes_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*MailboxesServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Retrieve",
-			Handler:    _Mailboxes_Retrieve_Handler,
+			MethodName: "RetrieveMsg",
+			Handler:    _Mailboxes_RetrieveMsg_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

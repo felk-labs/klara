@@ -5,21 +5,21 @@ package klara.v1;
 option go_package = "go.klara.mx/pb";
 
 service Mailboxes {
-	rpc Retrieve(MailboxMessageRetrieveRequest) returns (MailboxMessageRetrieveResponse);
+	rpc RetrieveMsg(MailboxMsgRetrieveRequest) returns (MailboxMsgRetrieveResponse);
 }
 
-message MailboxMessageRetrieveRequest {
-	string id         = 1;
-	string mailbox_id = 2;
+message MailboxMsgRetrieveRequest {
+	string msg_id         = 1;
+	string mbox_id = 2;
 }
 
-message MailboxMessageRetrieveResponse {
-	MailboxMessage msg = 1;
+message MailboxMsgRetrieveResponse {
+	MailboxMsg msg = 1;
 }
 
-message MailboxMessage {
-	string id         = 1;
-	string mailbox_id = 2;
+message MailboxMsg {
+	string msg_id         = 1;
+	string mbox_id = 2;
 	uint32 uid        = 3;
-	bytes  raw        = 4;
+	string  data        = 4;
 }
