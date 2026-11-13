@@ -16,7 +16,7 @@ message Msg {
 }
 
 message MsgsRetrieveRequest {
-	string id      = 1;
+	string id = 1;
 }
 
 message MsgsRetrieveResponse {
