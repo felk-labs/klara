@@ -20,7 +20,7 @@ type msgs struct {
 	pb.UnimplementedMsgsServer
 }
 
-func (*msgs) RetrieveMsg(ctx context.Context, req *pb.MsgsRetrieveRequest) (*pb.MsgsRetrieveResponse, error) {
+func (*msgs) Retrieve(ctx context.Context, req *pb.MsgsRetrieveRequest) (*pb.MsgsRetrieveResponse, error) {
 	msg, err := db.RetrieveMsg(ctx, req.GetId())
 	if err != nil {
 		if errors.Is(err, db.ErrNotFound) {
