@@ -16,12 +16,12 @@ var (
 	newMailboxMessageReader = storage.NewMailboxMessageReader
 )
 
-type mailboxes struct {
-	pb.UnimplementedMailboxesServer
+type msgs struct {
+	pb.UnimplementedMsgsServer
 }
 
-func (*mailboxes) RetrieveMsg(ctx context.Context, req *pb.MailboxMsgRetrieveRequest) (*pb.MailboxMsgRetrieveResponse, error) {
-	msg, err := db.RetrieveMsg(ctx, req.GetMsgId(), req.GetMboxId())
+func (*msgs) RetrieveMsg(ctx context.Context, req *pb.MsgRetrieveRequest) (*pb.MsgRetrieveResponse, error) {
+	msg, err := db.RetrieveMsg(ctx, req.GetId(), req.GetMboxId())
 	if err != nil {
 		if errors.Is(err, db.ErrNotFound) {
 			return nil, ErrNotFound
@@ -58,9 +58,9 @@ func (*mailboxes) RetrieveMsg(ctx context.Context, req *pb.MailboxMsgRetrieveReq
 		return nil, ErrUnknown
 	}
 
-	return &pb.MailboxMsgRetrieveResponse{
-		Msg: &pb.MailboxMsg{
-			MsgId:  msg.Id(),
+	return &pb.MsgRetrieveResponse{
+		Msg: &pb.Msg{
+			Id:     msg.Id(),
 			MboxId: msg.MboxId(),
 			Uid:    msg.Uid(),
 			Data:   string(data),

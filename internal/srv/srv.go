@@ -42,7 +42,7 @@ func New() http.Handler {
 	pb.RegisterAccountsServer(grpcServer, &accounts{})
 	pb.RegisterDomainsServer(grpcServer, &domains{})
 	pb.RegisterMailServer(grpcServer, &mail{})
-	pb.RegisterMailboxesServer(grpcServer, &mailboxes{})
+	pb.RegisterMsgsServer(grpcServer, &msgs{})
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/v1/events:pubsub", pubsubHandler)
