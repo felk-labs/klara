@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package klara.v1;
+
+option go_package = "go.klara.mx/pb";
+
+service Msgs {
+	rpc Retrieve(MsgRetrieveRequest) returns (MsgRetrieveResponse);
+}
+
+message MsgRetrieveRequest {
+	string id  = 1;
+	string mbox_id = 2;
+}
+
+message MsgRetrieveResponse {
+	Msg msg = 1;
+}
+
+message Msg {
+	string id  = 1;
+	string mbox_id = 2;
+	uint32 uid     = 3;
+	string data    = 4;
+}
