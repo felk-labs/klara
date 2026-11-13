@@ -31,8 +31,9 @@ type Mbox struct {
 	name   string
 }
 
-func (m *Mbox) Id() string   { return m.id }
-func (m *Mbox) Name() string { return m.name }
+func (m *Mbox) AcctId() string { return m.acctId }
+func (m *Mbox) Id() string     { return m.id }
+func (m *Mbox) Name() string   { return m.name }
 
 func (m *Mbox) Attributes() []string { return m.attrs.Attributes }
 func (m *Mbox) Size() uint32         { return m.attrs.Size }
@@ -369,6 +370,36 @@ func NewMbox(ctx context.Context, acctId string, name string, attrs MboxAttrs) (
 
 func NewPrimaryMbox(ctx context.Context, acctId string) (*Mbox, error) {
 	return NewMbox(ctx, acctId, MboxNameInbox, MboxAttrs{})
+}
+
+func RetrieveMbox(ctx context.Context, id string) (*Mbox, error) {
+	qry := `
+		select
+			id,
+			acct_id,
+			name,
+			attrs
+		from mboxes
+		where
+			id = $1::text
+		;
+	`
+
+	var mbox Mbox
+	if err := pg.QueryRow(ctx, qry, id).Scan(
+		&mbox.id,
+		&mbox.acctId,
+		&mbox.name,
+		&mbox.attrs,
+	); err != nil {
+		if errors.Is(err, pgx.ErrNoRows) {
+			return nil, wrapError(err, ErrNotFound)
+		}
+
+		return nil, err
+	}
+
+	return &mbox, nil
 }
 
 func RetrieveMboxByAcctId(ctx context.Context, acctId string, name string) (*Mbox, error) {
