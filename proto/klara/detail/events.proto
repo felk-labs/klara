@@ -22,6 +22,7 @@ message Event {
 	// Event data
 	oneof data {
 		EventDataMail mail = 4;
+		EventDataMsg  msg  = 5;
 	}
 }
 
@@ -30,4 +31,9 @@ message EventDataMail {
 
 	klara.v1.MailType   type   = 2;
 	klara.v1.MailStatus status = 3;
+}
+
+message EventDataMsg {
+	string id      = 1;
+	string mbox_id = 2;
 }

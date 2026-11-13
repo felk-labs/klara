@@ -12,6 +12,8 @@ import (
 	"github.com/uatuko/go-message/mail"
 
 	"go.klara.mx/internal/db"
+	"go.klara.mx/internal/events"
+	pbi "go.klara.mx/internal/pb"
 	"go.klara.mx/internal/storage"
 )
 
@@ -117,6 +119,8 @@ func Deliver(ctx context.Context, mailId string) error {
 }
 
 func deliver(ctx context.Context, rcpt string, data []byte, msgAttrs db.MsgAttrs) error {
+	log := zerolog.Ctx(ctx)
+
 	acct, err := db.RetrieveAcctByEmail(ctx, rcpt)
 	if err != nil {
 		return err
@@ -138,7 +142,29 @@ func deliver(ctx context.Context, rcpt string, data []byte, msgAttrs db.MsgAttrs
 	}
 
 	msgAttrs.Size = uint32(size)
-	_, err = inbox.NewMessage(ctx, uid, time.Now(), msgAttrs)
+	msg, err := inbox.NewMessage(ctx, uid, time.Now(), msgAttrs)
+	if err != nil {
+		return err
+	}
+
+	_, err = events.Publish(ctx,
+		&pbi.Event{
+			Data: &pbi.Event_Msg{
+				Msg: &pbi.EventDataMsg{
+					Id:     msg.Id(),
+					MboxId: inbox.Id(),
+				},
+			},
+		},
+	)
+	if err != nil {
+		log.Error().
+			Err(err).
+			Str("msg_id", msg.Id()).
+			Str("mbox_id", inbox.Id()).
+			Msg("failed to publish mailbox message event")
+	}
+
 	return err
 }
 
