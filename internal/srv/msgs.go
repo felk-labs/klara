@@ -20,8 +20,8 @@ type msgs struct {
 	pb.UnimplementedMsgsServer
 }
 
-func (*msgs) RetrieveMsg(ctx context.Context, req *pb.MsgRetrieveRequest) (*pb.MsgRetrieveResponse, error) {
-	msg, err := db.RetrieveMsg(ctx, req.GetId(), req.GetMboxId())
+func (*msgs) RetrieveMsg(ctx context.Context, req *pb.MsgsRetrieveRequest) (*pb.MsgsRetrieveResponse, error) {
+	msg, err := db.RetrieveMsg(ctx, req.GetId())
 	if err != nil {
 		if errors.Is(err, db.ErrNotFound) {
 			return nil, ErrNotFound
@@ -29,7 +29,7 @@ func (*msgs) RetrieveMsg(ctx context.Context, req *pb.MsgRetrieveRequest) (*pb.M
 		return nil, err
 	}
 
-	mbox, err := db.RetrieveMbox(ctx, req.GetMboxId())
+	mbox, err := db.RetrieveMbox(ctx, msg.MboxId())
 	if err != nil {
 		if errors.Is(err, db.ErrNotFound) {
 			return nil, ErrNotFound
@@ -58,7 +58,7 @@ func (*msgs) RetrieveMsg(ctx context.Context, req *pb.MsgRetrieveRequest) (*pb.M
 		return nil, ErrUnknown
 	}
 
-	return &pb.MsgRetrieveResponse{
+	return &pb.MsgsRetrieveResponse{
 		Msg: &pb.Msg{
 			Id:     msg.Id(),
 			MboxId: msg.MboxId(),
