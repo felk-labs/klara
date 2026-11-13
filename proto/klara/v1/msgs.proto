@@ -8,6 +8,13 @@ service Msgs {
 	rpc Retrieve(MsgRetrieveRequest) returns (MsgRetrieveResponse);
 }
 
+message Msg {
+	string id      = 1;
+	string mbox_id = 2;
+	uint32 uid     = 3;
+	string data    = 4;
+}
+
 message MsgRetrieveRequest {
 	string id      = 1;
 	string mbox_id = 2;
@@ -15,11 +22,4 @@ message MsgRetrieveRequest {
 
 message MsgRetrieveResponse {
 	Msg msg = 1;
-}
-
-message Msg {
-	string id      = 1;
-	string mbox_id = 2;
-	uint32 uid     = 3;
-	string data    = 4;
 }
