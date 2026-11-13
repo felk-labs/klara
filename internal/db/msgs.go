@@ -108,7 +108,7 @@ func (m *Msg) insert(ctx context.Context) error {
 	return nil
 }
 
-func RetrieveMsg(ctx context.Context, id string, mbox_id string) (*Msg, error) {
+func RetrieveMsg(ctx context.Context, id string) (*Msg, error) {
 	qry := `
 		select
 			id,
@@ -119,12 +119,11 @@ func RetrieveMsg(ctx context.Context, id string, mbox_id string) (*Msg, error) {
 		from msgs
 		where
 			id = $1::text
-			and mbox_id = $2::text
 		;
 	`
 
 	var d Msg
-	if err := pg.QueryRow(ctx, qry, id, mbox_id).Scan(
+	if err := pg.QueryRow(ctx, qry, id).Scan(
 		&d.id,
 		&d.ts,
 		&d.mboxId,
