@@ -21,102 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type MsgRetrieveRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	MboxId        string                 `protobuf:"bytes,2,opt,name=mbox_id,json=mboxId,proto3" json:"mbox_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MsgRetrieveRequest) Reset() {
-	*x = MsgRetrieveRequest{}
-	mi := &file_klara_v1_msgs_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MsgRetrieveRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MsgRetrieveRequest) ProtoMessage() {}
-
-func (x *MsgRetrieveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_v1_msgs_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MsgRetrieveRequest.ProtoReflect.Descriptor instead.
-func (*MsgRetrieveRequest) Descriptor() ([]byte, []int) {
-	return file_klara_v1_msgs_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *MsgRetrieveRequest) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *MsgRetrieveRequest) GetMboxId() string {
-	if x != nil {
-		return x.MboxId
-	}
-	return ""
-}
-
-type MsgRetrieveResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Msg           *Msg                   `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MsgRetrieveResponse) Reset() {
-	*x = MsgRetrieveResponse{}
-	mi := &file_klara_v1_msgs_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MsgRetrieveResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MsgRetrieveResponse) ProtoMessage() {}
-
-func (x *MsgRetrieveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_v1_msgs_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MsgRetrieveResponse.ProtoReflect.Descriptor instead.
-func (*MsgRetrieveResponse) Descriptor() ([]byte, []int) {
-	return file_klara_v1_msgs_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *MsgRetrieveResponse) GetMsg() *Msg {
-	if x != nil {
-		return x.Msg
-	}
-	return nil
-}
-
 type Msg struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -129,7 +33,7 @@ type Msg struct {
 
 func (x *Msg) Reset() {
 	*x = Msg{}
-	mi := &file_klara_v1_msgs_proto_msgTypes[2]
+	mi := &file_klara_v1_msgs_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -141,7 +45,7 @@ func (x *Msg) String() string {
 func (*Msg) ProtoMessage() {}
 
 func (x *Msg) ProtoReflect() protoreflect.Message {
-	mi := &file_klara_v1_msgs_proto_msgTypes[2]
+	mi := &file_klara_v1_msgs_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -154,7 +58,7 @@ func (x *Msg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Msg.ProtoReflect.Descriptor instead.
 func (*Msg) Descriptor() ([]byte, []int) {
-	return file_klara_v1_msgs_proto_rawDescGZIP(), []int{2}
+	return file_klara_v1_msgs_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Msg) GetId() string {
@@ -185,23 +89,110 @@ func (x *Msg) GetData() string {
 	return ""
 }
 
+type MsgsRetrieveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MsgsRetrieveRequest) Reset() {
+	*x = MsgsRetrieveRequest{}
+	mi := &file_klara_v1_msgs_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MsgsRetrieveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgsRetrieveRequest) ProtoMessage() {}
+
+func (x *MsgsRetrieveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_klara_v1_msgs_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MsgsRetrieveRequest.ProtoReflect.Descriptor instead.
+func (*MsgsRetrieveRequest) Descriptor() ([]byte, []int) {
+	return file_klara_v1_msgs_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *MsgsRetrieveRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type MsgsRetrieveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Msg           *Msg                   `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MsgsRetrieveResponse) Reset() {
+	*x = MsgsRetrieveResponse{}
+	mi := &file_klara_v1_msgs_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MsgsRetrieveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgsRetrieveResponse) ProtoMessage() {}
+
+func (x *MsgsRetrieveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_klara_v1_msgs_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MsgsRetrieveResponse.ProtoReflect.Descriptor instead.
+func (*MsgsRetrieveResponse) Descriptor() ([]byte, []int) {
+	return file_klara_v1_msgs_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *MsgsRetrieveResponse) GetMsg() *Msg {
+	if x != nil {
+		return x.Msg
+	}
+	return nil
+}
+
 var File_klara_v1_msgs_proto protoreflect.FileDescriptor
 
 const file_klara_v1_msgs_proto_rawDesc = "" +
 	"\n" +
-	"\x13klara/v1/msgs.proto\x12\bklara.v1\"=\n" +
-	"\x12MsgRetrieveRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
-	"\ambox_id\x18\x02 \x01(\tR\x06mboxId\"6\n" +
-	"\x13MsgRetrieveResponse\x12\x1f\n" +
-	"\x03msg\x18\x01 \x01(\v2\r.klara.v1.MsgR\x03msg\"T\n" +
+	"\x13klara/v1/msgs.proto\x12\bklara.v1\"T\n" +
 	"\x03Msg\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\ambox_id\x18\x02 \x01(\tR\x06mboxId\x12\x10\n" +
 	"\x03uid\x18\x03 \x01(\rR\x03uid\x12\x12\n" +
-	"\x04data\x18\x04 \x01(\tR\x04data2O\n" +
-	"\x04Msgs\x12G\n" +
-	"\bRetrieve\x12\x1c.klara.v1.MsgRetrieveRequest\x1a\x1d.klara.v1.MsgRetrieveResponseB\x10Z\x0ego.klara.mx/pbb\x06proto3"
+	"\x04data\x18\x04 \x01(\tR\x04data\"%\n" +
+	"\x13MsgsRetrieveRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"7\n" +
+	"\x14MsgsRetrieveResponse\x12\x1f\n" +
+	"\x03msg\x18\x01 \x01(\v2\r.klara.v1.MsgR\x03msg2Q\n" +
+	"\x04Msgs\x12I\n" +
+	"\bRetrieve\x12\x1d.klara.v1.MsgsRetrieveRequest\x1a\x1e.klara.v1.MsgsRetrieveResponseB\x10Z\x0ego.klara.mx/pbb\x06proto3"
 
 var (
 	file_klara_v1_msgs_proto_rawDescOnce sync.Once
@@ -217,14 +208,14 @@ func file_klara_v1_msgs_proto_rawDescGZIP() []byte {
 
 var file_klara_v1_msgs_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_klara_v1_msgs_proto_goTypes = []any{
-	(*MsgRetrieveRequest)(nil),  // 0: klara.v1.MsgRetrieveRequest
-	(*MsgRetrieveResponse)(nil), // 1: klara.v1.MsgRetrieveResponse
-	(*Msg)(nil),                 // 2: klara.v1.Msg
+	(*Msg)(nil),                  // 0: klara.v1.Msg
+	(*MsgsRetrieveRequest)(nil),  // 1: klara.v1.MsgsRetrieveRequest
+	(*MsgsRetrieveResponse)(nil), // 2: klara.v1.MsgsRetrieveResponse
 }
 var file_klara_v1_msgs_proto_depIdxs = []int32{
-	2, // 0: klara.v1.MsgRetrieveResponse.msg:type_name -> klara.v1.Msg
-	0, // 1: klara.v1.Msgs.Retrieve:input_type -> klara.v1.MsgRetrieveRequest
-	1, // 2: klara.v1.Msgs.Retrieve:output_type -> klara.v1.MsgRetrieveResponse
+	0, // 0: klara.v1.MsgsRetrieveResponse.msg:type_name -> klara.v1.Msg
+	1, // 1: klara.v1.Msgs.Retrieve:input_type -> klara.v1.MsgsRetrieveRequest
+	2, // 2: klara.v1.Msgs.Retrieve:output_type -> klara.v1.MsgsRetrieveResponse
 	2, // [2:3] is the sub-list for method output_type
 	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

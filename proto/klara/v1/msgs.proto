@@ -5,7 +5,7 @@ package klara.v1;
 option go_package = "go.klara.mx/pb";
 
 service Msgs {
-	rpc Retrieve(MsgRetrieveRequest) returns (MsgRetrieveResponse);
+	rpc Retrieve(MsgsRetrieveRequest) returns (MsgsRetrieveResponse);
 }
 
 message Msg {
@@ -15,11 +15,10 @@ message Msg {
 	string data    = 4;
 }
 
-message MsgRetrieveRequest {
+message MsgsRetrieveRequest {
 	string id      = 1;
-	string mbox_id = 2;
 }
 
-message MsgRetrieveResponse {
+message MsgsRetrieveResponse {
 	Msg msg = 1;
 }

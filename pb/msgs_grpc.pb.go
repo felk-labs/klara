@@ -26,7 +26,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MsgsClient interface {
-	Retrieve(ctx context.Context, in *MsgRetrieveRequest, opts ...grpc.CallOption) (*MsgRetrieveResponse, error)
+	Retrieve(ctx context.Context, in *MsgsRetrieveRequest, opts ...grpc.CallOption) (*MsgsRetrieveResponse, error)
 }
 
 type msgsClient struct {
@@ -37,9 +37,9 @@ func NewMsgsClient(cc grpc.ClientConnInterface) MsgsClient {
 	return &msgsClient{cc}
 }
 
-func (c *msgsClient) Retrieve(ctx context.Context, in *MsgRetrieveRequest, opts ...grpc.CallOption) (*MsgRetrieveResponse, error) {
+func (c *msgsClient) Retrieve(ctx context.Context, in *MsgsRetrieveRequest, opts ...grpc.CallOption) (*MsgsRetrieveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MsgRetrieveResponse)
+	out := new(MsgsRetrieveResponse)
 	err := c.cc.Invoke(ctx, Msgs_Retrieve_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func (c *msgsClient) Retrieve(ctx context.Context, in *MsgRetrieveRequest, opts 
 // All implementations must embed UnimplementedMsgsServer
 // for forward compatibility.
 type MsgsServer interface {
-	Retrieve(context.Context, *MsgRetrieveRequest) (*MsgRetrieveResponse, error)
+	Retrieve(context.Context, *MsgsRetrieveRequest) (*MsgsRetrieveResponse, error)
 	mustEmbedUnimplementedMsgsServer()
 }
 
@@ -62,7 +62,7 @@ type MsgsServer interface {
 // pointer dereference when methods are called.
 type UnimplementedMsgsServer struct{}
 
-func (UnimplementedMsgsServer) Retrieve(context.Context, *MsgRetrieveRequest) (*MsgRetrieveResponse, error) {
+func (UnimplementedMsgsServer) Retrieve(context.Context, *MsgsRetrieveRequest) (*MsgsRetrieveResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Retrieve not implemented")
 }
 func (UnimplementedMsgsServer) mustEmbedUnimplementedMsgsServer() {}
@@ -87,7 +87,7 @@ func RegisterMsgsServer(s grpc.ServiceRegistrar, srv MsgsServer) {
 }
 
 func _Msgs_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgRetrieveRequest)
+	in := new(MsgsRetrieveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -99,7 +99,7 @@ func _Msgs_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(inter
 		FullMethod: Msgs_Retrieve_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgsServer).Retrieve(ctx, req.(*MsgRetrieveRequest))
+		return srv.(MsgsServer).Retrieve(ctx, req.(*MsgsRetrieveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
