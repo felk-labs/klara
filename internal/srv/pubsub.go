@@ -86,9 +86,10 @@ func pubsubHandler(w http.ResponseWriter, r *http.Request) {
 		return
 
 	default:
-		name, _ := pbEv.GetAttrs()[events.AttrsEventNameKey]
+		attrs := pbEv.GetAttrs()
 		log.Warn().
-			Str(events.AttrsEventNameKey, name).
+			Str(events.AttrsEventNameKey, attrs[events.AttrsEventNameKey]).
+			Str(events.AttrsEventTypeKey, attrs[events.AttrsEventTypeKey]).
 			Msg("no processing logic for event")
 
 		w.WriteHeader(http.StatusNotImplemented)
