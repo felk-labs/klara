@@ -108,6 +108,38 @@ func (m *Msg) insert(ctx context.Context) error {
 	return nil
 }
 
+func RetrieveMsg(ctx context.Context, id string) (*Msg, error) {
+	qry := `
+		select
+			id,
+			ts,
+			mbox_id,
+			uid,
+			attrs
+		from msgs
+		where
+			id = $1::text
+		;
+	`
+
+	var d Msg
+	if err := pg.QueryRow(ctx, qry, id).Scan(
+		&d.id,
+		&d.ts,
+		&d.mboxId,
+		&d.uid,
+		&d.attrs,
+	); err != nil {
+		if errors.Is(err, pgx.ErrNoRows) {
+			return nil, wrapError(err, ErrNotFound)
+		}
+
+		return nil, err
+	}
+
+	return &d, nil
+}
+
 // Electronic mail address
 // Ref: https://www.rfc-editor.org/rfc/rfc9051#section-7.5.2
 type MsgAddress struct {

@@ -81,6 +81,10 @@ func pubsubHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+	case *pbi.Event_Msg:
+		w.WriteHeader(http.StatusNoContent)
+		return
+
 	default:
 		name, _ := pbEv.GetAttrs()[events.AttrsEventNameKey]
 		log.Warn().

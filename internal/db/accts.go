@@ -99,6 +99,36 @@ func NewAcct(ctx context.Context, domain string, name string, attrs AcctAttrs) (
 	return a, nil
 }
 
+func RetrieveAcct(ctx context.Context, id string) (*Acct, error) {
+	qry := `
+		select
+			id,
+			domain,
+			name,
+			attrs
+		from accts
+		where
+			id = $1::text
+		;
+	`
+
+	var acct Acct
+	if err := pg.QueryRow(ctx, qry, id).Scan(
+		&acct.id,
+		&acct.domain,
+		&acct.name,
+		&acct.attrs,
+	); err != nil {
+		if errors.Is(err, pgx.ErrNoRows) {
+			return nil, wrapError(err, ErrNotFound)
+		}
+
+		return nil, err
+	}
+
+	return &acct, nil
+}
+
 func RetrieveAcctByEmail(ctx context.Context, email string) (*Acct, error) {
 	// Account names and domains are stored in lowercase
 	name, domain, ok := strings.Cut(strings.ToLower(email), "@")
