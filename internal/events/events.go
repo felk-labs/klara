@@ -12,6 +12,7 @@ import (
 
 const (
 	AttrsEventNameKey = ".name"
+	AttrsEventTypeKey = ".type"
 
 	publisherWaitTimeout = 10 * time.Second
 )
@@ -33,27 +34,29 @@ func (ev *Event) Unwrap() *pb.Event {
 }
 
 func (ev *Event) attrs() map[string]string {
-	_, ok := ev.pbEv.Attrs[AttrsEventNameKey]
-	if ok {
+	if ev.pbEv.Attrs == nil {
+		ev.pbEv.Attrs = map[string]string{}
+	}
+
+	_, hasName := ev.pbEv.Attrs[AttrsEventNameKey]
+	_, hasType := ev.pbEv.Attrs[AttrsEventTypeKey]
+	if hasName && hasType {
 		return ev.pbEv.Attrs
 	}
 
-	var name string
-	switch ev.pbEv.Data.(type) {
-	case *pb.Event_Mail:
-		name = "mail"
-	case *pb.Event_Msg:
-		name = "message"
-	default:
-		name = "unknown"
+	name, typ := "unknown", "unknown"
+	m := ev.pbEv.ProtoReflect()
+	if fd := m.WhichOneof(m.Descriptor().Oneofs().ByName("data")); fd != nil {
+		name = string(fd.Name())
+		typ = string(fd.Message().FullName())
 	}
 
-	if ev.pbEv.Attrs == nil {
-		ev.pbEv.Attrs = map[string]string{
-			AttrsEventNameKey: name,
-		}
-	} else {
+	if !hasName {
 		ev.pbEv.Attrs[AttrsEventNameKey] = name
+	}
+
+	if !hasType {
+		ev.pbEv.Attrs[AttrsEventTypeKey] = typ
 	}
 
 	return ev.pbEv.Attrs
