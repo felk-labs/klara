@@ -141,7 +141,7 @@ func Deliver(ctx context.Context, mailId string) error {
 }
 
 // baseAddress strips the subaddress detail (if any) from a recipient address,
-// e.g. `user+xxxx@example.com` -> `user@example.com`.
+// e.g. `user+detail@example.com` -> `user@example.com`.
 func baseAddress(rcpt string) string {
 	local, domain, ok := strings.Cut(rcpt, "@")
 	if !ok {
