@@ -17,6 +17,10 @@ import (
 	"go.klara.mx/internal/storage"
 )
 
+// subaddressSeparator separates the account name from an optional detail part in a recipient's
+// local-part (RFC 5233), e.g. `user+detail@example.com`.
+const subaddressSeparator = "+"
+
 // Deliver handles local delivery of inbound mail by storing it in the recipients' inboxes.
 func Deliver(ctx context.Context, mailId string) error {
 	m, err := db.RetrieveMail(ctx, mailId)
@@ -68,8 +72,26 @@ func Deliver(ctx context.Context, mailId string) error {
 	}
 
 	var pending []string
+	seen := make(map[string]struct{}, len(rcpts)) // account ids
 	for _, rcpt := range rcpts {
-		if err = deliver(ctx, rcpt, m.Data(), msgAttrs); err != nil {
+		var acct *db.Acct
+		acct, err = db.RetrieveAcctByEmail(ctx, baseAddress(rcpt))
+		if err == nil {
+			// Multiple recipients (e.g. `user@` and `user+xxxx@`) can resolve to the same account,
+			// only deliver once per account.
+			if _, ok := seen[acct.Id()]; ok {
+				log.Debug().
+					Str("recipient", rcpt).
+					Str("acct_id", acct.Id()).
+					Msg("mail already delivered to recipient account, skipping duplicate delivery")
+
+				continue
+			}
+
+			seen[acct.Id()] = struct{}{}
+		}
+
+		if err = deliver(ctx, acct, m.Data(), msgAttrs); err != nil {
 			if errors.Is(err, db.ErrNotFound) {
 				log.Warn().
 					Str("recipient", rcpt).
@@ -118,13 +140,24 @@ func Deliver(ctx context.Context, mailId string) error {
 	return nil
 }
 
-func deliver(ctx context.Context, rcpt string, data []byte, msgAttrs db.MsgAttrs) error {
-	log := zerolog.Ctx(ctx)
-
-	acct, err := db.RetrieveAcctByEmail(ctx, rcpt)
-	if err != nil {
-		return err
+// baseAddress strips the subaddress detail (if any) from a recipient address,
+// e.g. `user+detail@example.com` -> `user@example.com`.
+func baseAddress(rcpt string) string {
+	local, domain, ok := strings.Cut(rcpt, "@")
+	if !ok {
+		return rcpt
 	}
+
+	base, _, found := strings.Cut(local, subaddressSeparator)
+	if !found || base == "" {
+		return rcpt
+	}
+
+	return base + "@" + domain
+}
+
+func deliver(ctx context.Context, acct *db.Acct, data []byte, msgAttrs db.MsgAttrs) error {
+	log := zerolog.Ctx(ctx)
 
 	inbox, err := db.RetrieveMboxByAcctId(ctx, acct.Id(), db.MboxNameInbox)
 	if err != nil {
